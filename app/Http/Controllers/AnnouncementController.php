@@ -6,5 +6,10 @@ use Illuminate\Http\Request;
 
 class AnnouncementController extends Controller
 {
-    //
+    public function create () {
+        return view('announcements.create');
+    }
+    public function store (Request $request) {
+        dd($request->all());
+    }
 }
