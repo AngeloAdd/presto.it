@@ -23,7 +23,7 @@
                                 <div class="col-md-6">
                                     <select name="category" id="category">
                                         @foreach ($categories as $category)
-                                            <option value="{{$category->id}}" {{old('category')==$category->id ? 'selected' : ''}}>
+                                            <option value="{{$category->id}}" {{old('category')==$category->id ? selected : ''}}>
                                                 {{$category->name}}
                                             </option>
                                         @endforeach
