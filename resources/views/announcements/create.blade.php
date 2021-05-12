@@ -21,7 +21,7 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="category" id="category">
+                                    <select name="category_id" id="category">
                                         @foreach ($categories as $category)
                                             <option value="{{$category->id}}" {{old('category')==$category->id ? 'selected' : ''}}>
                                                 {{$category->name}}
