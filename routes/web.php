@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[PublicController::class, 'index']);
+Route::get('/',[PublicController::class, 'indexHome']);
 
 Auth::routes();
 
@@ -24,4 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/crea/annuncio', [AnnouncementController::class, 'create'])->name('announcement.create');
 Route::post('/salva/annuncio', [AnnouncementController::class, 'store'])->name('announcement.store');
+// Rotta per visualizzare tutti annuni
+Route::get('/tutti/annunci/',[PublicController::class,'index'])->name('announcements.index');
 

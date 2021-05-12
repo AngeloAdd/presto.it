@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
 use App\Models\Announcement;
+use Illuminate\Support\Facades\Auth;
 
 class AnnouncementController extends Controller
 {
@@ -20,7 +21,7 @@ class AnnouncementController extends Controller
     public function store (AnnouncementRequest $request) {
 
         /* Mass Assignment con fillable nel modello */
-        $announcement= Announcement::create($request->validated());
+        Auth::user()->announcements()->create($request->validated());
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
     }
 }

@@ -27,6 +27,7 @@ class AnnouncementRequest extends FormRequest
             "title"=> "required|string|max:120", 
             "body" =>"required|string|max:500",
             "category_id" => "required",
+            "price"=>"required",
         ];
     }
     //messaggi di errore personalizzati
@@ -40,6 +41,7 @@ class AnnouncementRequest extends FormRequest
             "body.string" =>"L'articolo deve contenere del testo.",
             "body.max" =>"L'articolo deve contenere massimo :max caratteri.",
             "category_id.required" => "Non hai scelto una categoria.",
+            "price.required"=>"Non hai inserito il prezzo",
         ];
     }
 }
