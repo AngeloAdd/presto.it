@@ -16,6 +16,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('announcement.create')}}">Crea annunci</a>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a id="categoryDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Categorie
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="categoryDropdown">
+                        @foreach($categories as $category)
+                        
+                        <a class="dropdown-item nav-link" href="{{ route('announcements.show', compact('category')) }}">
+                            {{ $category->name}}
+                        </a>
+                        @endforeach
+                    </div>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
