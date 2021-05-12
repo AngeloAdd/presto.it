@@ -6,3 +6,4 @@
 * Guglielmo Gregoris
 * Angelo Adduci
 
+### User Story 1 **completata**
