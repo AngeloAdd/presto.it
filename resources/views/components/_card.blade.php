@@ -6,13 +6,14 @@
             </div>
             <div class="col-md-6">
                 <div class="card-body d-flex flex-column align-items-start justify-content-center">
-                    <h5 class="card-title">{{$announcement->title}}</h5>
+                    <h3 class="card-title text-bold main-text mb-0">{{$announcement->title}}</h3>
                     <p class="card-text"><small class="text-muted">Creato da: {{$announcement->user->name}}</small></p>
                     <p class="card-text">{{$announcement->body}}</p>
-                    <p class="card-text"><small class="text-muted">Creato il: {{$announcement->created_at->format('d/m/Y')}}</small></p>
-                    <small class="text-secondary">Prezzo {{$announcement->price}}</small>
-                    <a href="{{route('announcements.show', ["category"=>$announcement->category])}}">{{$announcement->category->name}}</a>
-                    <a href="#" class="btn btn-primary">Visualizza</a>
+                    <p class="my-1 text-secondary">Prezzo: <span class="fs-5 main-text">{{$announcement->price}}€ </span></p>
+                    <a class="text-decoration-none text-secondary my-2" href="{{route('announcements.show', ["category"=>$announcement->category])}}">Categoria: <span class="fs-1 sec-text">{{$announcement->category->name}}</span></a>
+                
+                    <a href="#" class="btn sec-bg text-white">Visualizza</a>
+                    <p class="card-text mb-0 w-100 d-flex justify-content-end"><small class="text-muted">Creato il: {{$announcement->created_at->format('d/m/Y')}}</small></p>
                 </div>
             </div>
         </div>

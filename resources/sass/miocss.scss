@@ -1,0 +1,28 @@
+:root {
+    --main-color: #fe6c3f;
+    --sec-color: #D97759;
+}
+
+.main-text {
+    color: var(--main-color);
+}
+
+.main-bg {
+    background-color: var(--main-color);
+}
+
+.sec-text {
+    color: var(--sec-color);
+}
+
+.sec-bg {
+    background-color: var(--sec-color);
+}
+
+.nav-fs {
+    font-size: 1.3rem;
+}
+
+.nav-fs:hover {
+    color:var(--sec-color);
+}
