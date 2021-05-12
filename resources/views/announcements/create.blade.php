@@ -1,11 +1,11 @@
 <x-layout>
-    <div class="container @if (session('message')) pt-2 @else pt-4 @endif">
-        <div class="row justify-content">
+    <div class="container pt-4 mt-2">
+        <div class="row justify-content-center">
             <div class="col-md-8">
                 @if (session('message'))
-                <div class="alert alert-success mb-2">
-                    {{session('message')}}
-                </div>
+                    <div class="alert alert-success mb-2">
+                        {{session('message')}}
+                    </div>
                 @endif
             </div>
         </div>
@@ -23,7 +23,7 @@
                                 <div class="col-md-6">
                                     <select name="category_id" id="category">
                                         @foreach ($categories as $category)
-                                            <option value="{{$category->id}}" {{old('category')==$category->id ? 'selected' : ''}}>
+                                            <option value="{{$category->id}}" {{old('category') === $category->id ? 'selected' : ''}}>
                                                 {{$category->name}}
                                             </option>
                                         @endforeach
@@ -60,7 +60,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        Creat Articolo
                                     </button>
                                 </div>
                             </div>

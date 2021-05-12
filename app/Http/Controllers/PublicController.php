@@ -9,7 +9,7 @@ class PublicController extends Controller
 {
     public function index() 
     {
-        $announcements = Announcement::orderByDesc('created_at')->take(5)->get();
+        $announcements = Announcement::orderByDesc('created_at')->take(6)->get();
         return view('welcome', compact('announcements'));
     }
 
