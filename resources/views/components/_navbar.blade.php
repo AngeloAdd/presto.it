@@ -17,19 +17,20 @@
                     <a class="sec-text text-decoration-none nav-fs" href="{{route('announcement.create')}}">Crea annunci</a>
                 </li>
 
-                <li class="nav-item mx-5 dropdown d-flex align-items-center">
-                    <a id="categoryDropdown" class="sec-text dropdown-toggle nav-fs text-decoration-none" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <li class="nav-item dropdown">
+                    <button class="btn dropdown-toggle sec-text dropdown-toggle nav-fs" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Categorie
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="categoryDropdown">
-                        @foreach($categories as $category)
-                        
-                        <a class="dropdown-item ps-3" href="{{ route('announcements.show', compact('category')) }}">
-                            {{ $category->name}}
-                        </a>
-                        @endforeach
-                    </div>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="categoryDropdown">
+                        <li>
+                            @foreach($categories as $category)
+                            
+                            <a class="dropdown-item ps-3" href="{{ route('announcements.show', compact('category')) }}">
+                                {{ $category->name}}
+                            </a>
+                            @endforeach
+                        </li>
+                    </ul>
                 </li>
             </ul>
 
@@ -52,23 +53,25 @@
                     <li class="nav-item mx-5 d-flex align-items-center">
                         <a class="sec-text text-decoration-none nav-fs" href="{{route('revisor.index')}}">Revisioni</a>
                     </li>
+
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <button class="btn dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>   
+                            </li>
+                        </ul>
                     </li>
+                    
                 @endguest
             </ul>
         </div>
