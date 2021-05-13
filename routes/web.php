@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,10 @@ Route::get('/tutti/annunci/',[PublicController::class,'index'])->name('announcem
 Route::get('/categoria/{category}/annunci', [PublicController::class, 'show'])->name('announcements.show');
 
 Route::view('not_revisor', 'not_revisor')->name('not_revisor');
+
+//! Rotta per i revisori
+Route::get('/revisione/annunci', [RevisorController::class, 'index'])->name('revisor.index');
+
+Route::post('/revisione/annunci/accettati', [RevisorController::class, 'storeAccepted'])->name('revisor.accepted');
+Route::post('/revisione/annunci/rifiutati', [RevisorController::class, 'storeRejected'])->name('revisor.rejected');
+
