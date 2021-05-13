@@ -27,3 +27,5 @@ Route::post('/salva/annuncio', [AnnouncementController::class, 'store'])->name('
 // Rotta per visualizzare tutti annuni
 Route::get('/tutti/annunci/',[PublicController::class,'index'])->name('announcements.index');
 Route::get('/categoria/{category}/annunci', [PublicController::class, 'show'])->name('announcements.show');
+
+Route::view('not_revisor', 'not_revisor')->name('not_revisor');
