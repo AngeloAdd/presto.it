@@ -60,17 +60,16 @@
                 </div>
             </div>
         </div> 
-        <a href="" action method="POST">
+            <form action="{{route('revisor.reject', compact('announcement'))}}" method="POST">
         @csrf
-        <button class="btn btn-danger" type="submit">Cestino</button>
-    </a>
-    <a href="" action method="POST">
-         @csrf
-        <button class="btn btn-success d-flex" type="submit">Accetta</button>
-    </a>   
-
-    @else
-        <h3>Nessun articolo da revisionare</h3>
-    @endif
+            <button class="btn btn-danger" type="submit">Cestino</button>
+            </form>
+        <form  action="{{route('revisor.accept', compact('announcement'))}}" method="POST">
+        @csrf
+            <button class="btn btn-success d-flex" type="submit">Accetta</button>
+        </form>   
+        @else
+            <h3>Nessun articolo da revisionare</h3>
+        @endif
  
 </x-layout>
