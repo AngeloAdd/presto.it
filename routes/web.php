@@ -39,3 +39,6 @@ Route::post('/revisione/{announcement}/rifiutati', [RevisorController::class, 'r
 Route::get('/revisione/annunci/cestino', [RevisorController::class, 'bin'])->name('revisor.bin');
 
 Route::put('/revisione/{announcement}/annulla', [RevisorController::class, 'unDo'])->name('revisor.undo');
+
+// ROTTA PER LA RICERCA
+Route::get('/cerca', [PublicController::class, 'search'])->name('search');

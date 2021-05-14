@@ -23,5 +23,7 @@ class PublicController extends Controller
         $announcements = $category->announcements()->paginate(6);
         return view('category', compact('announcements'));
     }
-
+    public function search(Request $request) {
+        dd($request->all());
+    }
 }
