@@ -33,7 +33,12 @@
                     </ul>
                 </li>
             </ul>
-
+                @if (Auth::user()->is_revisor)
+                <a href="{{route('revisor.index')}}" class="nav-link">Revisione</a>
+                <span class="badge rounded-pill bg-warning">
+                    {{\App\Models\Announcement::toBeRevised()}}
+                </span>
+                @endif
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav">
                 <!-- Authentication Links -->
@@ -71,7 +76,6 @@
                             </li>
                         </ul>
                     </li>
-                    
                 @endguest
             </ul>
         </div>

@@ -14,7 +14,8 @@ class RevisorController extends Controller
     public function index()
     {
        $announcement = Announcement::where('is_accepted', null)->orderByDesc('created_at')->first();
-       return view('revisors.index', compact('announcement'));
+       $toBeRevised = Announcement::toBeRevised();
+       return view('revisors.index', compact('announcement', 'toBeRevised'));
     }
 
 
