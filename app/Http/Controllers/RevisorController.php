@@ -2,27 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 
 class RevisorController extends Controller
 {
-    public function __construct() 
+    public function __construct()
     {
         $this->middleware('auth.revisor');
     }
-    public function index() 
+    public function index()
     {
-        return view('revisors.index');
+       $announcement = Announcement::where('is_accepted', null)->orderByDesc('created_at')->first();
+       return view('revisors.accept', compact('announcement'));
     }
 
-    public function storeAccepted() 
-    {
 
+    private function setAccepted($announcement_id, $value) {
+        $announcement = Announcement::find($announcement_id);
+        $announcement->is_accepted = $value;
+        $announcement->save();
+        return view('revisors.accept');
     }
 
-    public function storeRejected() 
+    public function accept($announcement_id)
     {
-
+        return $this->setAccepted($announcement_id, true);
     }
-
+    public function reject($announcement_id)
+    {
+        return $this->setAccepted($announcement_id, false);
+    }
 }

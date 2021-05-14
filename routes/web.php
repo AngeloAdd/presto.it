@@ -34,6 +34,6 @@ Route::view('not_revisor', 'not_revisor')->name('not_revisor');
 //! Rotta per i revisori
 Route::get('/revisione/annunci', [RevisorController::class, 'index'])->name('revisor.index');
 
-Route::post('/revisione/annunci/accettati', [RevisorController::class, 'storeAccepted'])->name('revisor.accepted');
-Route::post('/revisione/annunci/rifiutati', [RevisorController::class, 'storeRejected'])->name('revisor.rejected');
+Route::post('/revisione/annunci/accettati', [RevisorController::class, 'accept'])->name('revisor.accept');
+Route::post('/revisione/annunci/rifiutati', [RevisorController::class, 'reject'])->name('revisor.reject');
 
