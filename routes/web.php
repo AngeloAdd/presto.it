@@ -36,4 +36,4 @@ Route::get('/revisione/annunci', [RevisorController::class, 'index'])->name('rev
 
 Route::post('/revisione/annunci/accettati', [RevisorController::class, 'accept'])->name('revisor.accept');
 Route::post('/revisione/annunci/rifiutati', [RevisorController::class, 'reject'])->name('revisor.reject');
-
+Route::get('/revisione/annunci/cestino', [RevisorController::class, 'bin'])->name('revisor.bin');

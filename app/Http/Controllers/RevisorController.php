@@ -14,7 +14,7 @@ class RevisorController extends Controller
     public function index()
     {
        $announcement = Announcement::where('is_accepted', null)->orderByDesc('created_at')->first();
-       return view('revisors.accept', compact('announcement'));
+       return view('revisors.index', compact('announcement'));
     }
 
 
@@ -22,7 +22,7 @@ class RevisorController extends Controller
         $announcement = Announcement::find($announcement_id);
         $announcement->is_accepted = $value;
         $announcement->save();
-        return view('revisors.accept');
+        return view('revisors.index');
     }
 
     public function accept($announcement_id)
