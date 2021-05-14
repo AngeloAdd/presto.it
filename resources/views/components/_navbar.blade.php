@@ -33,12 +33,7 @@
                     </ul>
                 </li>
             </ul>
-                @if (Auth::user()->is_revisor)
-                <a href="{{route('revisor.index')}}" class="nav-link">Revisione</a>
-                <span class="badge rounded-pill bg-warning">
-                    {{\App\Models\Announcement::toBeRevised()}}
-                </span>
-                @endif
+               
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav">
                 <!-- Authentication Links -->
@@ -55,23 +50,34 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item mx-5 d-flex align-items-center">
-                        <a class="sec-text text-decoration-none nav-fs" href="{{route('revisor.index')}}">Revisioni</a>
-                    </li>
+                    
+                    
 
                     <li class="nav-item dropdown">
                         <button class="btn dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            @if (Auth::user() && Auth::user()->is_revisor)
+                                <li class="nav-item mx-5 d-flex align-items-center">
+                                    <a class="sec-text text-decoration-none nav-fs" href="{{route('revisor.index')}}">Revisioni</a>
+                                    <span class="badge rounded-pill bg-warning">
+                                        {{\App\Models\Announcement::toBeRevised()}}
+                                    </span>
+                                </li>
+                                <li class="nav-item mx-5 d-flex align-items-center">
+                                    <a class="sec-text text-decoration-none nav-fs" href="{{route('revisor.bin')}}">Cestino</a>
+                                    <span class="badge rounded-pill bg-warning">
+                                        {{\App\Models\Announcement::rejected()}}
+                                    </span>
+                                </li>
+                            @endif
                             <li>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
+                                    <button class="btn dropdown-item" type="submit">
+                                        {{ __('Logout') }}
+                                    </button>
                                 </form>   
                             </li>
                         </ul>

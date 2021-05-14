@@ -25,4 +25,9 @@ class Announcement extends Model
     {
         return Announcement::where('is_accepted', null)->count();
     }
+
+    static public function rejected() 
+    {
+        return Announcement::where('is_accepted', false)->count();
+    }
 }
