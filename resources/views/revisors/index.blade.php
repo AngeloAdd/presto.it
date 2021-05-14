@@ -1,10 +1,10 @@
 <x-layout>
     @if ($announcement)
         <div class="container-fluid">
-             <div class="row">
+            <div class="row">
                 <div class="col-md-4 mb-4">
                 <div class="card mb-3">
-                    <div class="row g-0">
+                    <div class="row my-3 g-0">
                         <div class="col-md-6">
                             <img class="w-100 h-100" src="https://via.placeholder.com/150" alt="...">
                         </div>
@@ -21,9 +21,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="row g-0">
+                    <div class="row my-3 g-0">
                         <div class="col-md-6">
                             <img class="w-100 h-100" src="https://via.placeholder.com/150" alt="...">
                         </div>
@@ -33,9 +31,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="row g-0">
+                    <div class="row my-3 g-0">
                         <div class="col-md-6">
                             <img class="w-100 h-100" src="https://via.placeholder.com/150" alt="...">
                         </div>
@@ -45,19 +41,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img class="w-100 h-100" src="https://via.placeholder.com/150" alt="...">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body d-flex flex-column align-items-start justify-content-center">
-                                ... ... ...
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>                
             </div>
         </div> 
             <form action="{{route('revisor.reject', compact('announcement'))}}" method="POST">
