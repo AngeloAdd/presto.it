@@ -17,18 +17,13 @@ class Announcement extends Model
 
     public function toSearchableArray()
     {
-        $array = [
-            'id'=>$this->id,
-            // 'titleNgrams'=> utf8_encode((new TNTIndexer)->buildTrigrams($this->title)),
-            // 'bodyNgrams'=> utf8_encode((new TNTIndexer)->buildTrigrams($this->body)),
-            'title'=> $this->title,
-            'body'=>$this->body,
-            'user'=>$this->user->name,
-            'category'=>$this->category->name,
-        ];
-
+        $array = $this->toArray();
         
-
+        $array['id']=$this->id;
+        $array['title']= $this->title;
+        $array['body']=$this->body;
+        $array['user']=$this->user->name;
+        $array['category']=$this->category->name;
         return $array;
     }
 
