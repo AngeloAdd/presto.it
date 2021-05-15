@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Scout\Searchable;
+use TeamTNT\TNTSearch\Indexer\TNTIndexer;
+use TeamTNT\TNTSearch\TNTSearch;
 
 class Announcement extends Model
 {
@@ -17,8 +19,11 @@ class Announcement extends Model
     {
         $array = [
             'id'=>$this->id,
+            // 'titleNgrams'=> utf8_encode((new TNTIndexer)->buildTrigrams($this->title)),
+            // 'bodyNgrams'=> utf8_encode((new TNTIndexer)->buildTrigrams($this->body)),
             'title'=> $this->title,
             'body'=>$this->body,
+            'user'=>$this->user->name,
             'category'=>$this->category->name,
         ];
 
