@@ -135,17 +135,17 @@ return [
     ],
 
     //TNT SEARCH
-    
+
     'tntsearch' => [
     'storage'  => storage_path(), //place where the index files will be stored
-    'fuzziness' => env('TNTSEARCH_FUZZINESS', false),
+    'fuzziness' => env('TNTSEARCH_FUZZINESS', true),
     'fuzzy' => [
-        'prefix_length' => 2,
+        'prefix_length' => 3,
         'max_expansions' => 50,
-        'distance' => 2
+        'distance' => 3
         ],
     'asYouType' => false,
-    'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
+    'searchBoolean' => env('TNTSEARCH_BOOLEAN', true),
     'maxDocs' => env('TNTSEARCH_MAX_DOCS', 500),
     ],
 
