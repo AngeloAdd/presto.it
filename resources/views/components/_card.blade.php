@@ -21,7 +21,7 @@
                         <p class="sec-text mb-0 d-flex align-items-center">Prezzo:</p>
                         <h3 class="main-text ms-2 mb-0 d-flex align-items-center">{{$announcement->price}}€ </h3>
                     </div>
-                        <a href="#" class="justify-self-end btn main-bg text-white">Visualizza</a>
+                        <a href="{{route('announcement.show', compact('announcement'))}}" class="justify-self-end btn main-bg text-white">Visualizza</a>
                     <p class="card-text mb-0 mt-2 w-100 d-flex justify-content-end"><small class="sec-text">Creato il: {{$announcement->created_at->format('d/m/Y')}}</small></p>
                 </div>
             </div>

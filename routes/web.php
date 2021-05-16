@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RevisorController;
+use App\Models\Announcement;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,8 @@ Route::post('/salva/annuncio', [AnnouncementController::class, 'store'])->name('
 // Rotta per visualizzare tutti annuni
 Route::get('/tutti/annunci/',[PublicController::class,'index'])->name('announcements.index');
 Route::get('/categoria/{category}/annunci', [PublicController::class, 'show'])->name('announcements.show');
-
+//Rotte per singolo annuncio
+Route::get('/singolo/annuncio/{announcement}',[AnnouncementController::class,'show'])->name('announcement.show');
 Route::view('not_revisor', 'not_revisor')->name('not_revisor');
 
 //! Rotta per i revisori

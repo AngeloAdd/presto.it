@@ -24,5 +24,12 @@ class AnnouncementController extends Controller
         Auth::user()->announcements()->create($request->validated());
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
     }
+
+    public function show($id)
+    {
+        $announcement = Announcement::find($id);
+        return view('announcements.show',compact('announcement'));
+    }
+
 }
 
