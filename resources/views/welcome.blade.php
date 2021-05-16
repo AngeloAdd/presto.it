@@ -1,6 +1,6 @@
 <x-layout>
 
-    <div class="vh-100 w-100 d-flex justify-content-center align-items-center above-the-fold">
+    <div class="w-100 d-flex justify-content-center align-items-center above-the-fold">
 
         <div class="mb-3">
             <form method="GET" action="{{route('search')}}">

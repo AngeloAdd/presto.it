@@ -16381,4 +16381,9 @@ h1, .h1, h2, .h2, h3, .h3, .title-text {
 
 .above-the-fold {
   min-height: 500px;
+  background-image: url("/img/header.jpg");
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
