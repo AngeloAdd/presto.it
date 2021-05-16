@@ -30,6 +30,10 @@ class AnnouncementController extends Controller
         $announcement = Announcement::find($id);
         return view('announcements.show',compact('announcement'));
     }
+    public function work() 
+    {
+        return view('revisors.workOffer');
+    }
 
 }
 

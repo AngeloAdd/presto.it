@@ -22,7 +22,7 @@
                     <a class="acc-text title-font text-decoration-none nav-fs" href="{{route('announcement.create')}}">Crea Annunci</a>
                 </li>
                 <li class="nav-item mx-2 mx-lg-5 d-flex align-items-center">
-                    <a class="acc-text title-font text-decoration-none nav-fs" href="#">Lavora Con Noi</a>
+                    <a class="acc-text title-font text-decoration-none nav-fs" href="{{route('work.offer')}}">Lavora Con Noi</a>
                 </li>
                 <li class="nav-item mx-2 mx-lg-5 d-flex align-items-center">
                     <a class="acc-text title-font text-decoration-none nav-fs" href="#">FAQ</a>
