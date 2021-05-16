@@ -1,22 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
 :root {
-    --main-color: #fe6c3f;
-    --sec-color: #D97759;
+    --main-color:  #FF006E;
+    --sec-color:  #5C5CC4;
+    --acc-color:  #3A405A;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, .title-text{
+    font-weight: 500;
 }
 
 .main-text {
     color: var(--main-color);
 }
+.sec-text {
+    color: var(--sec-color);
+}
+.acc-text {
+    color: var(--acc-color);
+}
 
 .main-bg {
     background-color: var(--main-color);
 }
-
-.sec-text {
-    color: var(--sec-color);
-}
-
 .sec-bg {
     background-color: var(--sec-color);
+}
+.acc-bg {
+    background-color: var(--acc-color);
 }
 
 .nav-fs {
@@ -25,4 +41,8 @@
 
 .nav-fs:hover {
     color:var(--sec-color);
+}
+
+.above-the-fold {
+    min-height:500px;
 }
