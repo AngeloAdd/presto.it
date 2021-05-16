@@ -35,23 +35,23 @@
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <li class="nav-item mx-1">
+                            <a class="text-decoration-none sec-text" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                        <li class="nav-item mx-1">
+                            <a class="text-decoration-none sec-text" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </li>
                     @endif
                 @else
 
 
 
-                    <li class="nav-item dropdown">
+                    <li class="nav-item mx-2 dropdown">
                         <button class="btn dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ Auth::user()->name }}
+                            <i class="bi bi-person-fill acc-text fs-4"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             @if (Auth::user() && Auth::user()->is_revisor)
@@ -77,6 +77,12 @@
                                 </form>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item mx-2 d-flex align-items-center">
+                        <a href="#"><i class="bi bi-suit-heart-fill acc-text fs-4"></i></a>
+                    </li>
+                    <li class="nav-item mx-2 d-flex align-items-center">
+                        <a href="#"><i class="bi bi-globe2 acc-text fs-4"></i></a>
                     </li>
                 @endguest
             </ul>
