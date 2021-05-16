@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
+use App\Mail\RevisorApplication;
 use App\Models\Announcement;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AnnouncementController extends Controller
 {
@@ -13,7 +15,7 @@ class AnnouncementController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function create () {
         return view('announcements.create');
     }
@@ -30,9 +32,14 @@ class AnnouncementController extends Controller
         $announcement = Announcement::find($id);
         return view('announcements.show',compact('announcement'));
     }
-    public function work() 
+    public function work()
     {
         return view('revisors.workOffer');
+    }
+    public function application (Request $request)
+    {
+         Mail::to('admin@presto.it')->send(new RevisorApplication($request->all()));
+         return redirect()->back();
     }
 
 }

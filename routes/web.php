@@ -29,7 +29,7 @@ Route::post('/salva/annuncio', [AnnouncementController::class, 'store'])->name('
 // Rotta per visualizzare tutti annuni
 Route::get('/tutti/annunci/',[PublicController::class,'index'])->name('announcements.index');
 // ROTTA PER SINGOLO ARTICOLO
-Route::get('/annuncio/{announcement}/mostra',[PublicController::class], 'showAnnouncement')->name('announcement.show');
+Route::get('/annuncio/{announcement}/mostra',[PublicController::class, 'showAnnouncement'])->name('announcement.show');
 Route::get('/categoria/{category}/annunci', [PublicController::class, 'show'])->name('announcements.show');
 Route::view('not_revisor', 'not_revisor')->name('not_revisor');
 
@@ -47,4 +47,4 @@ Route::get('/cerca', [PublicController::class, 'search'])->name('search');
 
 // ROTTA PER LAVORA CON NOI
 Route::get('/offerta/lavoro', [AnnouncementController::class, 'work'])->name('work.offer');
-Route::get('/candidatura', [AnnouncementController::class, 'application'])->name('application');
+Route::post('/candidatura', [AnnouncementController::class, 'application'])->name('application');

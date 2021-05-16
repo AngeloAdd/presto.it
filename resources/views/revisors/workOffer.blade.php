@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Candidati') }}</div>
                 <div class="card-body">
-                    <form method="GET" enctype="multipart/form-data" action="{{ route('application') }}">
+                    <form method="POST" enctype="multipart/form-data" action="{{ route('application') }}">
                         @csrf
                         <div class="mb-3 row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>

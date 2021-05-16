@@ -28,4 +28,7 @@ class PublicController extends Controller
         $announcements = Announcement::search('%'.$q.'%')->paginate(6);
         return view('search.search_results', compact('q', 'announcements'));
     }
+    public function showAnnouncement (Announcement $announcement) {
+        return view('announcements.showAnnouncement', compact('announcement'));
+    }
 }
