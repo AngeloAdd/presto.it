@@ -1,5 +1,5 @@
 <header class="d-flex align-items-center flex-column w-100">
-<nav class="w-100 navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="py-0 w-100 navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container-fluid mx-3">
         <a class="navbar-brand" href="{{ url('/') }}">
 
@@ -50,9 +50,9 @@
 
 
                     <li class="nav-item mx-2 dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-fill acc-text fs-4"></i>
-                        </button>
+                        <a class="btn" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-fill acc-text fs-3"></i>
+                        </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             @if (Auth::user() && Auth::user()->is_revisor)
                                 <li class="nav-item mx-5 d-flex align-items-center">
@@ -78,10 +78,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item mx-2 d-flex align-items-center">
+                    <li class="nav-item me-2 d-flex align-items-center">
                         <a href="#"><i class="bi bi-suit-heart-fill acc-text fs-4"></i></a>
                     </li>
-                    <li class="nav-item mx-2 d-flex align-items-center">
+                    <li class="nav-item mx-3 d-flex align-items-center">
                         <a href="#"><i class="bi bi-globe2 acc-text fs-4"></i></a>
                     </li>
                 @endguest
@@ -89,7 +89,7 @@
         </div>
     </div>
 </nav>
-<div class="d-flex justify-content-center align-items-center px-5 py-2 w-100 border border-1 border-50-white shadow acc-bg">
+<div class="d-flex justify-content-center align-items-center px-5 py-2 w-100 border border-1 acc-bg">
     <ul class="navbar-nav flex-row w-75 d-flex justify-content-around align-items-center">
         @foreach($categories as $category)
             <li class="nav-item">
