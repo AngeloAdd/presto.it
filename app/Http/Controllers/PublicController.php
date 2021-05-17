@@ -21,7 +21,7 @@ class PublicController extends Controller
     }
     public function show (Category $category) {
         $announcements = $category->announcements()->paginate(6);
-        return view('category', compact('announcements'));
+        return view('category', compact('announcements', 'category'));
     }
     public function search(Request $request) {
         $q = $request->q;

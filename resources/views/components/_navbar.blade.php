@@ -19,7 +19,23 @@
                     <a class="acc-text title-text my-auto text-decoration-none nav-fs" href="{{route('announcements.index')}}">Annunci</a>
                 </li>
                 <li class="nav-item title-text mx-2 mx-lg-5 d-flex align-items-center">
-                    <a class="acc-text title-font text-decoration-none nav-fs" href="{{route('announcement.create')}}">Crea Annunci</a>
+                    <a class="acc-text text-decoration-none nav-fs" href="{{route('announcement.create')}}">Crea Annunci</a>
+                </li>
+
+                <li class="nav-item mx-2 mx-lg-5 d-lg-none dropdown">
+                    <button class="btn dropdown-toggle title-text px-0 acc-text dropdown-toggle nav-fs" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorie
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="categoryDropdown">
+                        <li>
+                            @foreach($categories as $category)
+
+                            <a class="dropdown-item ps-3" href="{{ route('announcements.show', compact('category')) }}">
+                                {{ $category->name}}
+                            </a>
+                            @endforeach
+                        </li>
+                    </ul>
                 </li>
                 
                 <li class="nav-item title-text mx-2 mx-lg-5 d-flex align-items-center">

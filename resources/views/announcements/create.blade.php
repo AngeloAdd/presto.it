@@ -21,7 +21,7 @@
                                 <label for="password-confirm" class="col-md-4 form-label text-md-right">Scegli Categoria:</label>
 
                                 <div class="col-md-6">
-                                    <select name="category_id" id="category">
+                                    <select name="category_id" style="border-color: #ced4da;" class="border-1 rounded-3" id="category">
                                         @foreach ($categories as $category)
                                             <option value="{{$category->id}}" {{old('category') === $category->id ? 'selected' : ''}}>
                                                 {{$category->name}}
@@ -61,7 +61,7 @@
                                 <label for="body" class="col-md-4 form-label text-md-right">Descrizione: </label>
 
                                 <div class="col-md-6">
-                                    <textarea id="body" type="text" class="form-control @error('body') is-invalid @enderror" name="body" required autocomplete="Articolo">{{ old('body') }}</textarea>
+                                    <textarea rows="6" id="body" class="form-control @error('body') is-invalid @enderror" name="body" required autocomplete="Articolo">{{ old('body') }}</textarea>
 
                                     @error('body')
                                         <span class="invalid-feedback" role="alert">
