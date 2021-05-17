@@ -47,7 +47,7 @@
                                 <label for="price" class="col-md-4 col-form-label text-md-right">Prezzo:</label>
 
                                 <div class="col-md-6">
-                                    <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('title') }}" required autocomplete="Titolo" autofocus>
+                                    <input id="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('title') }}" required autocomplete="Titolo" autofocus>
 
                                     @error('price')
                                         <span class="invalid-feedback" role="alert">
