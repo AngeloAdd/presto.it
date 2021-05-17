@@ -16,15 +16,18 @@ class AnnouncementController extends Controller
         $this->middleware('auth');
     }
 
-    public function create () {
-        return view('announcements.create');
+    public function create() {
+        $uniqueSecret = base_convert(sha1(uniqid(mt_rand())), 16, 36);
+        return view('announcements.create', compact('uniqueSecret'));
     }
 
     public function store (AnnouncementRequest $request) {
 
         /* Mass Assignment con fillable nel modello */
+        dd($request->uniqueSecret);
         Auth::user()->announcements()->create($request->validated());
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
+
     }
 
     public function show($id)
@@ -41,6 +44,7 @@ class AnnouncementController extends Controller
          Mail::to('admin@presto.it')->send(new RevisorApplication($request->all()));
          return redirect()->back();
     }
+
 
 }
 

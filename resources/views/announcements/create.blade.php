@@ -17,6 +17,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('announcement.store') }}">
                             @csrf
+                            <input type="hidden" value="{{$uniqueSecret}}" name="uniqueSecret">
                             <div class="mb-3 row">
                                 <label for="password-confirm" class="col-md-4 form-label text-md-right">Scegli Categoria:</label>
 
@@ -68,6 +69,12 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="password-confirm" class="col-md-4 form-label text-md-right">Immagini</label>
+                                <div class="col-md-6">
+                                   <div class="dropzone" id="drophere"></div>
                                 </div>
                             </div>
                             <div class="mb-3 row mb-0">
