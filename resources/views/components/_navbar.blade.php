@@ -8,7 +8,7 @@
             </svg>
 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -16,22 +16,23 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item mx-2 mx-lg-5 d-flex align-items-center">
-                    <a class="acc-text title-font my-auto text-decoration-none nav-fs" href="{{route('announcements.index')}}">Annunci</a>
+                    <a class="acc-text title-text my-auto text-decoration-none nav-fs" href="{{route('announcements.index')}}">Annunci</a>
                 </li>
-                <li class="nav-item mx-2 mx-lg-5 d-flex align-items-center">
+                <li class="nav-item title-text mx-2 mx-lg-5 d-flex align-items-center">
                     <a class="acc-text title-font text-decoration-none nav-fs" href="{{route('announcement.create')}}">Crea Annunci</a>
                 </li>
-                <li class="nav-item mx-2 mx-lg-5 d-flex align-items-center">
+                
+                <li class="nav-item title-text mx-2 mx-lg-5 d-flex align-items-center">
                     <a class="acc-text title-font text-decoration-none nav-fs" href="{{route('work.offer')}}">Lavora Con Noi</a>
                 </li>
-                <li class="nav-item mx-2 mx-lg-5 d-flex align-items-center">
+                <li class="nav-item title-text mx-2 mx-lg-5 d-flex align-items-center">
                     <a class="acc-text title-font text-decoration-none nav-fs" href="#">FAQ</a>
                 </li>
 
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav d-flex flex-row justify-content-start align-items-center">
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
@@ -89,7 +90,7 @@
         </div>
     </div>
 </nav>
-<div class="d-flex justify-content-center align-items-center px-5 py-2 w-100 border border-1 acc-bg">
+<div class="d-none d-lg-flex justify-content-center align-items-center px-5 py-2 w-100 border border-1 acc-bg">
     <ul class="navbar-nav flex-row w-75 d-flex justify-content-around align-items-center">
         @foreach($categories as $category)
             <li class="nav-item">
