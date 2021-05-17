@@ -19,18 +19,21 @@
         </style>
     </x-slot>
     <div class="container-fluid above-the-fold justify-content-center align-content-center">
-        <div class="row w-100 h-100 justify-content-center align-content-center">
-            <div class="col-8 d-flex justify-content-center">
-                <h1 class="display-3 title-text text-white">Benvenuti in <span class="main-text">Presto</span>.it</h1>
+        <div class="row mx-auto w-100 h-100 justify-content-center align-content-center">
+            <div class="col-12 col-md-8 d-flex justify-content-center">
+                <h1 class="display-3 title-text text-white">
+                    <span class="d-none d-md-inline">Benvenuti in </span>
+                    <span class="main-text">Presto</span>.it
+                </h1>
             </div>
-            <div class="col-8 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
                <div class="hr-custom main-bg">
                </div>
             </div>
-            <div class="col-8 d-flex justify-content-center mb-3">
-                <h2 class="text-white mt-2">Trova il tuo prossimo affare</h2>
+            <div class="col-12 d-flex justify-content-center mb-3">
+                <h2 class="text-white fs-5 mt-2  fs-md-2">Trova il tuo prossimo affare</h2>
             </div>
-            <div class="col-8 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
                 <form method="GET" action="{{route('search')}}">
                     @csrf
                     <div class="d-flex justify-content-center align-items-center w-100">
