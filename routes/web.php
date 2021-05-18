@@ -49,4 +49,8 @@ Route::get('/cerca', [PublicController::class, 'search'])->name('search');
 Route::get('/offerta/lavoro', [AnnouncementController::class, 'work'])->name('work.offer');
 Route::post('/candidatura', [AnnouncementController::class, 'application'])->name('application');
 
+//! Rotte dropzone
+
 Route::post('/annuncio/immagine/upload', [AnnouncementController::class, 'uploadImages'])->name('upload.images');
+Route::delete('/annuncio/immagine/remove', [AnnouncementController::class, 'removeImages'])->name('remove.images');
+

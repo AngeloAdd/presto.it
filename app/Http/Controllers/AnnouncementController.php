@@ -33,11 +33,14 @@ class AnnouncementController extends Controller
         foreach ($images as $image)
         {
             $fileName = basename($image);
+            $newFileName =  "public/announcements/{$id}/{$fileName}";
+            $file = Storage::move($image, $newFileName);
             $announcement->announcementImages()->create([
-              'file'=> Storage::move($image, "public/announcements/{$id}/{$fileName}")
+              'file'=> $file,
           ]);
         }
-        Storage::deleteDirectory("{$uniqueSecret}");
+        $directory = storage_path("app/public/temp/{$uniqueSecret}");
+        Storage::deleteDirectory($directory);
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
 
     }
@@ -65,7 +68,24 @@ class AnnouncementController extends Controller
 
         session()->push("images.{$uniqueSecret}", $fileName);
 
-        return response()->json((session()->get("images.{$uniqueSecret}")));
+        return response()->json(
+            [
+               'id' => $fileName,
+            ]
+        );
+    }
+
+    public function removeImages(Request $request) {
+
+        $uniqueSecret = $request->uniqueSecret;
+
+        $fileName = $request->id;
+
+        session()->push("removedimages.{$uniqueSecret}", $fileName);
+        
+        Storage::delete($fileName);
+
+        return response()->json('ok');
     }
 
 }
