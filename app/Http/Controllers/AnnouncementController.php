@@ -52,7 +52,7 @@ class AnnouncementController extends Controller
 
         session()->push("images.{$uniqueSecret}", $fileName);
 
-        dd(session()->get("images.{$uniqueSecret}"));
+        return response()->json((session()->get("images.{$uniqueSecret}")));
     }
 
 }
