@@ -16388,6 +16388,11 @@ h1, .h1, h2, .h2, h3, .h3, .title-text {
   background-position: center;
 }
 
+.icon-custom:hover {
+  transform: translateY(-10px);
+  color: var(--main-color);
+}
+
 .dropzone, .dropzone * {
   box-sizing: border-box;
 }

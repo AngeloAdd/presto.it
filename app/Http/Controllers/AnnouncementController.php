@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
+use App\Jobs\ResizeImage;
 use App\Mail\RevisorApplication;
 use App\Models\Announcement;
+use App\Models\AnnouncementImage;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -86,7 +88,7 @@ class AnnouncementController extends Controller
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
 
         dispatch(new ResizeImage(
-            $newFileName,
+            $fileName,
             120,
             120
         ));

@@ -51,3 +51,8 @@ h1, h2, h3, .title-text{
     background-size: cover;
     background-position: center;
 }
+
+.icon-custom:hover {
+    transform: translateY(-10px);
+    color: var(--main-color);
+}
