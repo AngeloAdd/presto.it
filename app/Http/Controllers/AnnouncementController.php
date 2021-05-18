@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
+use App\Jobs\ResizeImage;
 use App\Mail\RevisorApplication;
 use App\Models\Announcement;
 use App\Models\AnnouncementImage;
@@ -87,7 +88,7 @@ class AnnouncementController extends Controller
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
 
         dispatch(new ResizeImage(
-            $newFileName,
+            $fileName,
             120,
             120
         ));
@@ -129,7 +130,7 @@ class AnnouncementController extends Controller
         foreach ($imagesNet as $image) {
             $data[] = [
                 'id'=>$image,
-                'src'=>AnnouncementImage::getUrlByFilePath($image,250,250)
+                'src'=>Storage::url($image)
             ];
         }
 

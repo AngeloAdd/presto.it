@@ -52,4 +52,37 @@
             @endforeach
         </div>
     </div>
+
+    <div class="col-12 col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <p>Annunci</p>
+                <i class="bi bi-megaphone"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <p>Categorie</p>
+                <i class="bi bi-megaphone"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <p>Utenti</p>
+                <i class="bi bi-megaphone"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <p>Recensioni</p>
+                <i class="bi bi-megaphone"></i>
+            </div>
+        </div>
+    </div>
 </x-layout>
