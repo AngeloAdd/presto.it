@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
 use App\Mail\RevisorApplication;
 use App\Models\Announcement;
+use App\Models\AnnouncementImage;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -128,7 +129,7 @@ class AnnouncementController extends Controller
         foreach ($imagesNet as $image) {
             $data[] = [
                 'id'=>$image,
-                'src'=>Storage::url($image)
+                'src'=>AnnouncementImage::getUrlByFilePath($image,250,250)
             ];
         }
 
