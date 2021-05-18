@@ -3,7 +3,25 @@
 
         <div class="row ps-lg-4">
             <div class="col-12 col-lg-6 d-flex flex-column justify-content-around align-items-center py-lg-4">
-                <img class="d-lg-flex w-100" src="https://picsum.photos/300" alt="...">
+                <!-- <img class="d-lg-flex w-100" src="https://picsum.photos/300" alt="..."> -->
+
+                <div id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                    @foreach($announcement->announcementImages as $image) 
+                        <div class="carousel-item @if($image===$announcement->announcementImages[0]) active @endif">
+                        <img src="{{ $image->getUrl(250,250)}}" class="d-block w-100" alt="...">
+                        </div>
+                        @endforeach
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
             <div class="col-12 col-lg-6 ps-lg-0">
                 <div class="card-body d-flex flex-column align-items-start justify-content-between h-100">

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
 use App\Mail\RevisorApplication;
 use App\Models\Announcement;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -17,8 +18,8 @@ class AnnouncementController extends Controller
         $this->middleware('auth');
     }
 
-    public function create() {
-        $uniqueSecret = base_convert(sha1(uniqid(mt_rand())), 16, 36);
+    public function create(Request $request) {
+        $uniqueSecret = $request->old('uniqueSecret',base_convert(sha1(uniqid(mt_rand())), 16, 36));
         return view('announcements.create', compact('uniqueSecret'));
     }
 
@@ -29,20 +30,38 @@ class AnnouncementController extends Controller
 
         $uniqueSecret = $request->uniqueSecret;
         $images = session()->get("images.{$uniqueSecret}");
-        $id = $announcement->id;
-        foreach ($images as $image)
-        {
-            $fileName = basename($image);
-            $newFileName =  "public/announcements/{$id}/{$fileName}";
-            $file = Storage::move($image, $newFileName);
-            $announcement->announcementImages()->create([
-              'file'=> $file,
-          ]);
-        }
-        $directory = storage_path("app/public/temp/{$uniqueSecret}");
-        Storage::deleteDirectory($directory);
-        return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
+        if($images){
 
+            $id = $announcement->id;
+            foreach ($images as $image)
+            {
+                $i = new AnnouncementImage();
+                $fileName = basename($image);
+                $newFileName =  "public/announcements/{$id}/{$fileName}";
+                $file = Storage::move($image, $newFileName);
+
+
+                dispatch(new ResizeImage(
+                    $newFileName,
+                    250,
+                    250
+                ));
+                
+                $i->file = $newFileName;
+                $i->announcement_id = $announcement->id;
+
+                $i->save();
+                
+
+
+                $announcement->announcementImages()->create([
+                    'file'=> $file,
+                    ]);
+            }
+            Storage::deleteDirectory("public/temp/{$uniqueSecret}");
+        }
+        return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
+        
     }
 
     public function show($id)
@@ -66,7 +85,14 @@ class AnnouncementController extends Controller
 
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
 
+        dispatch(new ResizeImage(
+            $newFileName,
+            120,
+            120
+        ));
+
         session()->push("images.{$uniqueSecret}", $fileName);
+
 
         return response()->json(
             [
@@ -88,5 +114,25 @@ class AnnouncementController extends Controller
         return response()->json('ok');
     }
 
+    public function getImage(Request $request) {
+        $uniqueSecret = $request->uniqueSecret;
+
+        $images = session()->get("images.{$uniqueSecret}",[]);
+
+        $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+
+        $imagesNet = array_diff($images, $removedImages);
+
+        $data = [];
+
+        foreach ($imagesNet as $image) {
+            $data[] = [
+                'id'=>$image,
+                'src'=>Storage::url($image)
+            ];
+        }
+
+        return response()->json($data);
+    }
 }
 

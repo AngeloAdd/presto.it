@@ -17,7 +17,29 @@ $(function() {
                 uniqueSecret : uniqueSecret,
                 
             },
-            addRemoveLinks: true
+
+            addRemoveLinks : true,
+
+            init : function() {
+                $.ajax({
+                    type : 'GET',
+                    url : '/annuncio/immagini',
+                    data : {
+                        uniqueSecret : uniqueSecret
+                    },
+                    dataType:'json'
+                }).done( function(data) {
+                    $.each( data, function(key,value) {
+                        let file = {
+                            serverId : value.id
+                        };
+
+                        myDropzone.options.addedfile.call(myDropzone, file);
+                        myDropzone.options.thumbnail.call(myDropzone, file, value.src);
+                    });
+                });
+            }
+
         });
 
         myDropzone.on("success", function(file, respose){
