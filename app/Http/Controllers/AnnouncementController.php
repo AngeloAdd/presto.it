@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
 use App\Mail\RevisorApplication;
 use App\Models\Announcement;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -17,8 +18,8 @@ class AnnouncementController extends Controller
         $this->middleware('auth');
     }
 
-    public function create() {
-        $uniqueSecret = base_convert(sha1(uniqid(mt_rand())), 16, 36);
+    public function create(Request $request) {
+        $uniqueSecret = $request->old('uniqueSecret',base_convert(sha1(uniqid(mt_rand())), 16, 36));
         return view('announcements.create', compact('uniqueSecret'));
     }
 
@@ -41,7 +42,7 @@ class AnnouncementController extends Controller
                     'file'=> $file,
                     ]);
             }
-            Storage::deleteDirectory("app/public/temp/{$uniqueSecret}");
+            Storage::deleteDirectory("public/temp/{$uniqueSecret}");
         }
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
 
@@ -90,5 +91,25 @@ class AnnouncementController extends Controller
         return response()->json('ok');
     }
 
+    public function getImage(Request $request) {
+        $uniqueSecret = $request->uniqueSecret;
+
+        $images = session()->get("images.{$uniqueSecret}",[]);
+
+        $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+
+        $imagesNet = array_diff($images, $removedImages);
+
+        $data = [];
+
+        foreach ($imagesNet as $image) {
+            $data[] = [
+                'id'=>$image,
+                'src'=>Storage::url($image)
+            ];
+        }
+
+        return response()->json($data);
+    }
 }
 

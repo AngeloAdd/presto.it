@@ -54,3 +54,4 @@ Route::post('/candidatura', [AnnouncementController::class, 'application'])->nam
 Route::post('/annuncio/immagine/upload', [AnnouncementController::class, 'uploadImages'])->name('upload.images');
 Route::delete('/annuncio/immagine/remove', [AnnouncementController::class, 'removeImages'])->name('remove.images');
 
+Route::get('/annuncio/immagini',[AnnouncementController::class, 'getImage'])->name('get.images');
