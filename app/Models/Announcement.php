@@ -18,7 +18,7 @@ class Announcement extends Model
     public function toSearchableArray()
     {
         $array = $this->toArray();
-        
+
         $array['id']=$this->id;
         $array['title']= $this->title;
         $array['body']=$this->body;
@@ -36,13 +36,16 @@ class Announcement extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
-    static public function toBeRevised() 
+    public function announcementImages() {
+        return $this->hasMany(AnnouncementImage::class);
+    }
+
+    static public function toBeRevised()
     {
         return Announcement::where('is_accepted', null)->count();
     }
 
-    static public function rejected() 
+    static public function rejected()
     {
         return Announcement::where('is_accepted', false)->count();
     }

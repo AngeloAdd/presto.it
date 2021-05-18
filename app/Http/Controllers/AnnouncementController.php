@@ -8,6 +8,7 @@ use App\Mail\RevisorApplication;
 use App\Models\Announcement;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
@@ -24,7 +25,19 @@ class AnnouncementController extends Controller
     public function store (AnnouncementRequest $request) {
 
         /* Mass Assignment con fillable nel modello */
-        Auth::user()->announcements()->create($request->validated());
+        $announcement = Auth::user()->announcements()->create($request->validated());
+
+        $uniqueSecret = $request->uniqueSecret;
+        $images = session()->get("images.{$uniqueSecret}");
+        $id = $announcement->id;
+        foreach ($images as $image)
+        {
+            $fileName = basename($image);
+            $announcement->announcementImages()->create([
+              'file'=> Storage::move($image, "public/announcements/{$id}/{$fileName}")
+          ]);
+        }
+        Storage::deleteDirectory("{$uniqueSecret}");
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
 
     }
