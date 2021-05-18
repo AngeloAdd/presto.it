@@ -17,29 +17,28 @@ $(function() {
                 uniqueSecret : uniqueSecret,
                 
             },
-            addRemoveLinks: true,
 
-            init: function(){
+            addRemoveLinks : true,
+
+            init : function() {
                 $.ajax({
-                    type:'GET',
-                    url:'/annuncio/immagini',
-                    data:{
-                        uniqueSecret:uniqueSecret
+                    type : 'GET',
+                    url : '/annuncio/immagini',
+                    data : {
+                        uniqueSecret : uniqueSecret
                     },
                     dataType:'json'
-                }).done(function(data){
-                    $.each(data,function(key,value){
+                }).done( function(data) {
+                    $.each( data, function(key,value) {
                         let file = {
-                            serverId:value.id
+                            serverId : value.id
                         };
 
-                        myDropzone.options.addedfile.call(myDropzone,file);
-                        myDropzone.options.thumbnail.call(myDropzone,file,value.src);
+                        myDropzone.options.addedfile.call(myDropzone, file);
+                        myDropzone.options.thumbnail.call(myDropzone, file, value.src);
                     });
                 });
             }
-
-
 
         });
 
