@@ -44,6 +44,16 @@ class AnnouncementController extends Controller
          return redirect()->back();
     }
 
+    public function uploadImages(Request $request) {
+
+        $uniqueSecret = $request->uniqueSecret;
+
+        $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+
+        session()->push("images.{$uniqueSecret}", $fileName);
+
+        dd(session()->get("images.{$uniqueSecret}"));
+    }
 
 }
 
