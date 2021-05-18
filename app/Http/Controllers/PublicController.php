@@ -32,4 +32,10 @@ class PublicController extends Controller
     public function showAnnouncement (Announcement $announcement) {
         return view('announcements.showAnnouncement', compact('announcement'));
     }
+    public function locale($locale) 
+    {
+        session()->put('locale', $locale);
+        return redirect()->back();
+    }
 }
+

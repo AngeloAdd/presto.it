@@ -22,7 +22,7 @@
         <div class="row mx-auto w-100 h-100 justify-content-center align-content-center">
             <div class="col-12 col-md-8 d-flex justify-content-center">
                 <h1 class="display-3 title-text text-white">
-                    <span class="d-none d-md-inline">Benvenuti in </span>
+                    <span class="d-none d-md-inline">{{ __('ui.welcome')}}</span>
                     <span class="main-text">Presto</span>.it
                 </h1>
             </div>

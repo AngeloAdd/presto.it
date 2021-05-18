@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RevisorController;
 use App\Models\Announcement;
@@ -23,6 +24,7 @@ Route::get('/',[PublicController::class, 'indexHome']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/nuovo/annuncio', [HomeController::class, 'newAnnouncement'])->name('announcement.new');
 
 Route::get('/crea/annuncio', [AnnouncementController::class, 'create'])->name('announcement.create');
 Route::post('/salva/annuncio', [AnnouncementController::class, 'store'])->name('announcement.store');
@@ -31,6 +33,7 @@ Route::get('/tutti/annunci/',[PublicController::class,'index'])->name('announcem
 // ROTTA PER SINGOLO ARTICOLO
 Route::get('/annuncio/{announcement}/mostra',[PublicController::class, 'showAnnouncement'])->name('announcement.show');
 Route::get('/categoria/{category}/annunci', [PublicController::class, 'show'])->name('announcements.show');
+Route::post('/locale/{locale}', [PublicController::class ,'locale'])->name('locale');
 Route::view('not_revisor', 'not_revisor')->name('not_revisor');
 
 //! Rotta per i revisori
