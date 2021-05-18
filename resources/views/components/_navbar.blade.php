@@ -96,23 +96,29 @@
                     </li>
                     <ul class="d-flex justify-content-center align-item-center list-unstyled">
                             <a class="nav-link" href="{{ route('announcement.new')}}"></a>
-                        <li class="nav-item me-2">
-                            <a href="#"><i class="bi bi-suit-heart-fill acc-text fs-4"></i></a>
+                        <li class="nav-item mx-2 dropdown">
+                            <a class="btn" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-suit-heart-fill acc-text fs-4"></i>
+                            </a>
                         </li>
-                        <li class="nav-item mx-3">
-                            <a href="#"><i class="bi bi-globe2 acc-text fs-4"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            @include('layouts._locale', [ 'lang' => 'it', 'nation' => 'it'])
-                        </li>
-
-                        <li class="nav-item">
-                            @include('layouts._locale', [ 'lang' => 'en', 'nation' => 'gb'])
-                        </li>
-
-                        <li class="nav-item">
-                            @include('layouts._locale', [ 'lang' => 'es', 'nation' => 'es'])
-                        </li>
+                        <li class="nav-item mx-2 dropdown">
+                            <a class="btn" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-globe2 acc-text fs-4"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            </li>
+                            <li class="nav-item d-flex align-items-center">
+                                @include('layouts._locale', [ 'lang' => 'it', 'nation' => 'it'])
+                            </li>
+    
+                            <li class="nav-item d-flex align-items-center">
+                                @include('layouts._locale', [ 'lang' => 'en', 'nation' => 'gb'])
+                            </li>
+    
+                            <li class="nav-item d-flex align-items-center">
+                                @include('layouts._locale', [ 'lang' => 'es', 'nation' => 'es'])
+                            </li>
+                            </ul>
                     </ul>
                 @endguest
             </ul>
