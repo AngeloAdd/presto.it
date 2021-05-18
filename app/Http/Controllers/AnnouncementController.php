@@ -24,7 +24,6 @@ class AnnouncementController extends Controller
     public function store (AnnouncementRequest $request) {
 
         /* Mass Assignment con fillable nel modello */
-        dd($request->uniqueSecret);
         Auth::user()->announcements()->create($request->validated());
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
 

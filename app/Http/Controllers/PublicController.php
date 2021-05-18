@@ -10,13 +10,13 @@ class PublicController extends Controller
 {
     public function indexHome()
     {
-        $announcements = Announcement::orderByDesc('created_at')->take(6)->get();
+        $announcements = Announcement::orderByDesc('created_at')->where('is_accepted', true)->take(6)->get();
         return view('welcome', compact('announcements'));
     }
 
     public function index()
     {
-        $announcements = Announcement::orderByDesc('created_at')->paginate(18);
+        $announcements = Announcement::orderByDesc('created_at')->where('is_accepted', true)->paginate(18);
         return view('announcements', compact('announcements'));
     }
     public function show (Category $category) {
@@ -25,7 +25,8 @@ class PublicController extends Controller
     }
     public function search(Request $request) {
         $q = $request->q;
-        $announcements = Announcement::search('%'.$q.'%')->paginate(6);
+        $announcements = Announcement::search('%'.$q.'%')->where('is_accepted', true)->paginate(6);
+        
         return view('search.search_results', compact('q', 'announcements'));
     }
     public function showAnnouncement (Announcement $announcement) {
