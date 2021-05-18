@@ -29,18 +29,20 @@ class AnnouncementController extends Controller
 
         $uniqueSecret = $request->uniqueSecret;
         $images = session()->get("images.{$uniqueSecret}");
-        $id = $announcement->id;
-        foreach ($images as $image)
-        {
-            $fileName = basename($image);
-            $newFileName =  "public/announcements/{$id}/{$fileName}";
-            $file = Storage::move($image, $newFileName);
-            $announcement->announcementImages()->create([
-              'file'=> $file,
-          ]);
+        if($images){
+
+            $id = $announcement->id;
+            foreach ($images as $image)
+            {
+                $fileName = basename($image);
+                $newFileName =  "public/announcements/{$id}/{$fileName}";
+                $file = Storage::move($image, $newFileName);
+                $announcement->announcementImages()->create([
+                    'file'=> $file,
+                    ]);
+            }
+            Storage::deleteDirectory("app/public/temp/{$uniqueSecret}");
         }
-        $directory = storage_path("app/public/temp/{$uniqueSecret}");
-        Storage::deleteDirectory($directory);
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
 
     }
