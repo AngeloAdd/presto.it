@@ -7,7 +7,7 @@ $(function() {
 
         let myDropzone = new Dropzone('#drophere', {
 
-            url : '/annunci/immagine/upload',
+            url : '/annuncio/immagine/upload',
 
             params : {
 

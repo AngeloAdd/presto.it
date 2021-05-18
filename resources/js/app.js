@@ -1,6 +1,6 @@
 require('./bootstrap');
 require('./miojs');
-require('./announcementsImages');
+require('./announcementImages');
 
 
 //! DROPZONE 

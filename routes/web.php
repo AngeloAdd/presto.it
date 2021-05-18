@@ -49,4 +49,4 @@ Route::get('/cerca', [PublicController::class, 'search'])->name('search');
 Route::get('/offerta/lavoro', [AnnouncementController::class, 'work'])->name('work.offer');
 Route::post('/candidatura', [AnnouncementController::class, 'application'])->name('application');
 
-Route::post('/annunci/immagine/upload', [AnnouncementController::class, 'uploadImages'])->name('upload.image');
+Route::post('/annuncio/immagine/upload', [AnnouncementController::class, 'uploadImages'])->name('upload.images');
