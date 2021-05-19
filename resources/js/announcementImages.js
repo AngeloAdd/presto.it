@@ -42,7 +42,7 @@ $(function() {
 
         });
 
-        myDropzone.on("success", function(file, respose){
+        myDropzone.on("success", function(file, response){
             file.serverId = response.id;
         });
 

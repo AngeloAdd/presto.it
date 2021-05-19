@@ -110,7 +110,7 @@ class AnnouncementController extends Controller
         $fileName = $request->id;
 
         session()->push("removedimages.{$uniqueSecret}", $fileName);
-        dd($fileName);
+        
         Storage::delete($fileName);
 
         return response()->json('ok');
