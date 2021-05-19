@@ -52,37 +52,37 @@
             @endforeach
         </div>
     </div>
-
-    
-    <div class="col-12 col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <p>Annunci</p>
-                <i class="bi bi-megaphone"></i>
+    <div class="d-flex my-5">    
+        <div class="col-12 col-md-3">
+            <div class="card text-center main-text">
+                <div class="card-body">
+                    <p>Annunci</p>
+                    <i class="bi bi-megaphone fs-5"></i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <p>Categorie</p>
-                <i class="bi bi-megaphone"></i>
+        <div class="col-12 col-md-3">
+            <div class="card text-center main-text">
+                <div class="card-body">
+                    <p>Categorie</p>
+                    <i class="bi bi-list-stars fs-5"></i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <p>Utenti</p>
-                <i class="bi bi-megaphone"></i>
+        <div class="col-12 col-md-3">
+            <div class="card text-center main-text">
+                <div class="card-body">
+                    <p>Utenti</p>
+                    <i class="bi bi-person fs-5"></i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <p>Recensioni</p>
-                <i class="bi bi-megaphone"></i>
+        <div class="col-12 col-md-3">
+            <div class="card text-center main-text">
+                <div class="card-body">
+                    <p>Recensioni</p>
+                    <i class="bi bi-pencil-square fs-5"></i>
+                </div>
             </div>
         </div>
     </div>

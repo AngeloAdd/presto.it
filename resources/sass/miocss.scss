@@ -9,6 +9,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    min-height: 100vh;
+}
+
+#sticky-footer {
+    position: sticky;
+    top: 100%;
 }
 
 h1, h2, h3, .title-text{

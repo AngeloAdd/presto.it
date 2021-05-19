@@ -1,5 +1,5 @@
 
-<footer class="container-fluid px-4 py-4 acc-bg">
+<footer id="sticky-footer" class="container-fluid px-4 py-4 acc-bg">
     <div class="row align-items-center justify-content-around h-100">
         <div class="col-12 col-md-3 px-3">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 322 270">
