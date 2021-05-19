@@ -49,7 +49,7 @@ $(function() {
         myDropzone.on("removedfile", function(file){
             $.ajax({
                 type: 'DELETE',
-                url: '/announcement/images/remove',
+                url: '/annuncio/immagine/remove',
                 data: {
                     _token: csrfToken,
                     id: file.serverId,

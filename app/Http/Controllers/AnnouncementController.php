@@ -110,7 +110,7 @@ class AnnouncementController extends Controller
         $fileName = $request->id;
 
         session()->push("removedimages.{$uniqueSecret}", $fileName);
-        
+        dd($fileName);
         Storage::delete($fileName);
 
         return response()->json('ok');
@@ -123,14 +123,14 @@ class AnnouncementController extends Controller
 
         $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
 
-        $imagesNet = array_diff($images, $removedImages);
+        $images = array_diff($images, $removedImages);
 
         $data = [];
 
-        foreach ($imagesNet as $image) {
+        foreach ($images as $image) {
             $data[] = [
                 'id'=>$image,
-                'src'=>Storage::url($image)
+                'src'=>AnnouncementImage::getUrlByFilePath($image, 120, 120)
             ];
         }
 

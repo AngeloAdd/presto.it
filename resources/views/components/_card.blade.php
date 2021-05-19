@@ -11,7 +11,7 @@
                         <div class="carousel-item @if($image===$announcement->announcementImages[0]) active @endif">
                         <img src="{{ $image->getUrl(250,250)}}" class="d-block w-100" alt="...">
                         </div>
-                        @endforeach
+                    @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -45,15 +45,8 @@
          </div>
     </div>
 
-    <div class="container-fluid px-5 mt-5">
-        <div class="row w-100">
-            @foreach ($announcements as $announcement)
-                @include('components._card')
-            @endforeach
-        </div>
-    </div>
-    <div class="d-flex my-5">    
-        <div class="col-12 col-md-3">
+    <div class="d-flex my-5 py-5 px-5 mx-5">    
+        <div class="col-12 col-md-3 px-3">
             <div class="card text-center main-text">
                 <div class="card-body">
                     <p>Annunci</p>
@@ -61,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-3 px-3">
             <div class="card text-center main-text">
                 <div class="card-body">
                     <p>Categorie</p>
@@ -69,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-3 px-3">
             <div class="card text-center main-text">
                 <div class="card-body">
                     <p>Utenti</p>
@@ -77,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-3 px-3">
             <div class="card text-center main-text">
                 <div class="card-body">
                     <p>Recensioni</p>
@@ -86,4 +79,13 @@
             </div>
         </div>
     </div>
+
+    <div class="container-fluid px-5 mt-5">
+        <div class="row w-100">
+            @foreach ($announcements as $announcement)
+                @include('components._card')
+            @endforeach
+        </div>
+    </div>
+    
 </x-layout>
