@@ -32,7 +32,7 @@ class AnnouncementImage extends Model
     }
 
     public function getUrl( $width = null, $height = null){
-        return AnnouncementImage:: getUrlByFilePath($this->file, $width, $height);
+        return AnnouncementImage::getUrlByFilePath($this->file, $width, $height);
     }
 
 
