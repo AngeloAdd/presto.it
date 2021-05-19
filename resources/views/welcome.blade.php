@@ -47,7 +47,7 @@
 
     <div class="d-flex my-5 py-5 px-5 mx-5">    
         <div class="col-12 col-md-3 px-3">
-            <div class="card text-center main-text">
+            <div class="card text-center acc-text">
                 <div class="card-body">
                     <p>Annunci</p>
                     <i class="bi bi-megaphone fs-5"></i>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="col-12 col-md-3 px-3">
-            <div class="card text-center main-text">
+            <div class="card border border-1 border-secondary text-center acc-text">
                 <div class="card-body">
                     <p>Categorie</p>
                     <i class="bi bi-list-stars fs-5"></i>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="col-12 col-md-3 px-3">
-            <div class="card text-center main-text">
+            <div class="card text-center acc-text">
                 <div class="card-body">
                     <p>Utenti</p>
                     <i class="bi bi-person fs-5"></i>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="col-12 col-md-3 px-3">
-            <div class="card text-center main-text">
+            <div class="card text-center acc-text">
                 <div class="card-body">
                     <p>Recensioni</p>
                     <i class="bi bi-pencil-square fs-5"></i>

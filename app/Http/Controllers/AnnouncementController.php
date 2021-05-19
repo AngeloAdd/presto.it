@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
+use App\Jobs\GoogleVisionImage;
 use App\Jobs\ResizeImage;
 use App\Mail\RevisorApplication;
 use App\Models\Announcement;
@@ -54,11 +55,9 @@ class AnnouncementController extends Controller
 
                 $i->save();
                 
-
-
-                $announcement->announcementImages()->create([
-                    'file'=> $file,
-                    ]);
+                dispatch(new GoogleVisionImage(
+                    $i->id
+                ));
             }
             Storage::deleteDirectory("public/temp/{$uniqueSecret}");
         }

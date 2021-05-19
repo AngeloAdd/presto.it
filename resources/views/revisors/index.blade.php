@@ -27,12 +27,52 @@
                             </div>
                         </div>
                         @if ($announcement->announcementImages)
-                            <div class="col-12 col-lg-6 d-flex flex-column justify-content-around align-items-center py-lg-4"> 
+                            <div class="col-12 d-flex flex-column justify-content-around align-items-center py-lg-4"> 
                                 <div class="container">
                                     <div class="row">
                                         @foreach ($announcement->announcementImages as $image)
-                                            <div class="col-6"></div>
-                                            <div class="col-6"></div>
+                                            <div class="col-6">
+                                                <img src="{{$image->getUrl(250,250)}}" alt="">
+                                            </div>
+                                            <div class="col-6">
+                                                <ul class="list-group">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="ms-2 me-auto">
+                                                            <div class="fw-bold">Adult</div>
+                                                            
+                                                        </div>
+                                                        <span class="badge bg-primary rounded-pill">{{$image->adult}}</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="ms-2 me-auto">
+                                                            <div class="fw-bold">Medical</div>
+                                                           
+                                                        </div>
+                                                        <span class="badge bg-primary rounded-pill">{{$image->medical}}</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="ms-2 me-auto">
+                                                            <div class="fw-bold">Spoof</div>
+                                                            
+                                                        </div>
+                                                        <span class="badge bg-primary rounded-pill">{{$image->spoof}}</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="ms-2 me-auto">
+                                                            <div class="fw-bold">Violence</div>
+                                                            
+                                                        </div>
+                                                        <span class="badge bg-primary rounded-pill">{{$image->violence}}</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="ms-2 me-auto">
+                                                            <div class="fw-bold">Racy</div>
+                                                            
+                                                        </div>
+                                                        <span class="badge bg-primary rounded-pill">{{$image->racy}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>

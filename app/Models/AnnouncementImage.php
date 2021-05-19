@@ -27,6 +27,7 @@ class AnnouncementImage extends Model
         $fileName = basename($filePath);
 
         $file = "{$path}/crop{$width}x{$height}_{$fileName}";
+        
 
         return Storage::url($file);
     }
