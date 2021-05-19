@@ -8,6 +8,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Spatie\Image\Image;
+use Spatie\Image\Manipulations;
+
 
 class ResizeImage implements ShouldQueue
 {
@@ -42,7 +45,7 @@ class ResizeImage implements ShouldQueue
         $destPath =  storage_path() . '/app/' . $this->path . "/crop{$width}x{$height}_" . $this->fileName;
 
         Image::load($srcPath)
-            ->crop(Manipulation::CROP_CENTER, $width, $height)
+            ->crop(Manipulations::CROP_CENTER, $width, $height)
             ->save($destPath);
     }
 }

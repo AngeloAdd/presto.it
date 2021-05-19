@@ -2,6 +2,7 @@
 
 return [
 
-    'welcome' => 'Bienvenido in ',
+    'Benvenuti su' => 'Bienvenido in ',
+    'Trova il tuo prossimo affare' => 'Encuentra tu pròxima oferta'
     
 ];
