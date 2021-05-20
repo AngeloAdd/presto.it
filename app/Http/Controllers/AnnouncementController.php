@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
 use App\Jobs\GoogleVisionImage;
 use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionFaceDetection;
 use App\Jobs\ResizeImage;
 use App\Mail\RevisorApplication;
 use App\Models\Announcement;
@@ -14,6 +15,7 @@ use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use  Illuminate\Support\Facades\Bus;
 
 class AnnouncementController extends Controller
 {
@@ -45,23 +47,22 @@ class AnnouncementController extends Controller
                 $file = Storage::move($image, $newFileName);
 
 
-                dispatch(new ResizeImage(
-                    $newFileName,
-                    250,
-                    250
-                ));
+               
 
                 $i->file = $newFileName;
                 $i->announcement_id = $announcement->id;
 
                 $i->save();
+                
+                Bus::chain(
+                    [
+                        new GoogleVisionImage($i->id),
+                        new GoogleVisionLabelImage($i->id),
+                        new GoogleVisionFaceDetection($i->id),
+                        new ResizeImage($i->file,250,250),
+                    ]
+                )->dispatch();
 
-                dispatch(new GoogleVisionImage(
-                    $i->id
-                ));
-                dispatch(new GoogleVisionLabelImage(
-                    $i->id
-                ));
             }
             Storage::deleteDirectory("public/temp/{$uniqueSecret}");
         }
