@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="mb-3 row ">
                                         <div class="col-md-12">
-                                        <div class="dropzone " id="drophere"></div>
+                                        <div class="dropzone" id="drophere"></div>
                                         </div>
                                     </div>
                                     <div class="mb-3 row mb-0">
