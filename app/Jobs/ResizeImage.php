@@ -49,8 +49,8 @@ class ResizeImage implements ShouldQueue
             ->watermark(storage_path('app/img/logo.png'))
             ->watermarkPosition('bottom-right')
             ->watermarkPadding(20,20)
-            ->watermarkWidth(30, Manipulations::UNIT_PIXEL)
-            ->watermarkHeight(30, Manipulations::UNIT_PIXEL)
+            ->watermarkWidth(30, Manipulations::UNIT_PIXELS)
+            ->watermarkHeight(30, Manipulations::UNIT_PIXELS)
             ->watermarkFit(Manipulations::FIT_STRETCH)
             ->save($destPath);
     }

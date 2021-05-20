@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\AnnouncementImage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -10,6 +11,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Spatie\Image\Image;
 use Spatie\Image\Manipulations;
+use Google\Cloud\Vision\V1\ImageAnnotatorClient;
+use Google\Cloud\Core\ServiceBuilder;
 
 
 class GoogleVisionFaceDetection implements ShouldQueue
@@ -63,8 +66,8 @@ class GoogleVisionFaceDetection implements ShouldQueue
             ->watermark(storage_path('app/img/gugli.png'))
             ->watermarkPosition('top-left')
             ->watermarkPadding($bounds[0][0], $bounds[0][1])
-            ->watermarkWidth($width, Manipulations::UNIT_PIXEL)
-            ->watermarkHeight($height, Manipulations::UNIT_PIXEL)
+            ->watermarkWidth($width, Manipulations::UNIT_PIXELS)
+            ->watermarkHeight($height, Manipulations::UNIT_PIXELS)
             ->watermarkFit(Manipulations::FIT_STRETCH)
             ->save($srcPath);
         }
