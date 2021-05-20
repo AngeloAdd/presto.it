@@ -13,3 +13,5 @@ npm-debug.log
 yarn-error.log
 
 /storage/*.index
+/storage/*.index-shm
+/storage/*.index-wal
