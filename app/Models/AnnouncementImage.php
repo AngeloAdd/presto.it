@@ -10,8 +10,9 @@ class AnnouncementImage extends Model
 {
     use HasFactory;
     protected $fillable = ['file', 'announcement_id'];
+    
     protected $casts = [
-        'labels'=>'array'
+        'labels' => 'array',
     ];
 
     public function announcement() {

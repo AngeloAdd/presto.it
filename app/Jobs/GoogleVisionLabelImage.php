@@ -53,7 +53,7 @@ class GoogleVisionLabelImage implements ShouldQueue
             {
                 $result[] = $label->getDescription();
             }
-            $image->labels = json_encode($result);
+            $image->labels = $result;
             $image->save();
         }
         $imageAnnotator->close();
