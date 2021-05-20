@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 0py-3 py-lg-2">
+                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 py-3 py-lg-2">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="ps-3">
                             <i class="bi bi-chat-left-text display-5 display-lg-4 acc-text"></i>
