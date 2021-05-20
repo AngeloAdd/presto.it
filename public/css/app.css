@@ -16399,6 +16399,24 @@ h1, .h1, h2, .h2, h3, .h3, .title-text {
   color: var(--main-color);
 }
 
+.altezza {
+  height: 100vh;
+}
+
+.dropzone {
+  border-color: black !important;
+  border-radius: 5px;
+  padding: 0 !important;
+  background: white !important;
+  min-height: 200px !important;
+  width: 100%;
+  margin-bottom: 20px;
+  line-height: 200px;
+  vertical-align: middle;
+  color: #263238;
+  text-align: center !important;
+}
+
 .dropzone, .dropzone * {
   box-sizing: border-box;
 }
