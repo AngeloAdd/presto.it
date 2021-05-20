@@ -10,6 +10,9 @@ class AnnouncementImage extends Model
 {
     use HasFactory;
     protected $fillable = ['file', 'announcement_id'];
+    protected $casts = [
+        'labels'=>'array'
+    ];
 
     public function announcement() {
         return $this->belongsTo(Announcement::class);
@@ -22,12 +25,12 @@ class AnnouncementImage extends Model
 
             return Storage::url($filePath);
         }
-        
+
         $path = dirname($filePath);
         $fileName = basename($filePath);
 
         $file = "{$path}/crop{$width}x{$height}_{$fileName}";
-        
+
 
         return Storage::url($file);
     }

@@ -1,5 +1,4 @@
 <x-layout>
-
     @if ($announcement)
     <div class="container-fluid px-5 py-5">
         <div class="row d-flex justify-content-center align-items-center">
@@ -18,7 +17,7 @@
                                 </a>
                                 <p class="card-text acc-text">{{substr($announcement->body,0,10)}}</p>
                                 <div class="d-flex justify-content-start align-item-center pb-2">
-            
+
                                     <p class="sec-text mb-0 d-flex align-items-center">Prezzo:</p>
                                     <h3 class="main-text ms-2 mb-0 d-flex align-items-center">{{$announcement->price}}€ </h3>
                                 </div>
@@ -27,7 +26,7 @@
                             </div>
                         </div>
                         @if ($announcement->announcementImages)
-                            <div class="col-12 d-flex flex-column justify-content-around align-items-center py-lg-4"> 
+                            <div class="col-12 d-flex flex-column justify-content-around align-items-center py-lg-4">
                                 <div class="container">
                                     <div class="row">
                                         @foreach ($announcement->announcementImages as $image)
@@ -39,39 +38,48 @@
                                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                                         <div class="ms-2 me-auto">
                                                             <div class="fw-bold">Adult</div>
-                                                            
+
                                                         </div>
                                                         <span class="badge bg-primary rounded-pill">{{$image->adult}}</span>
                                                     </li>
                                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                                         <div class="ms-2 me-auto">
                                                             <div class="fw-bold">Medical</div>
-                                                           
+
                                                         </div>
                                                         <span class="badge bg-primary rounded-pill">{{$image->medical}}</span>
                                                     </li>
                                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                                         <div class="ms-2 me-auto">
                                                             <div class="fw-bold">Spoof</div>
-                                                            
+
                                                         </div>
                                                         <span class="badge bg-primary rounded-pill">{{$image->spoof}}</span>
                                                     </li>
                                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                                         <div class="ms-2 me-auto">
                                                             <div class="fw-bold">Violence</div>
-                                                            
+
                                                         </div>
                                                         <span class="badge bg-primary rounded-pill">{{$image->violence}}</span>
                                                     </li>
                                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                                         <div class="ms-2 me-auto">
                                                             <div class="fw-bold">Racy</div>
-                                                            
+
                                                         </div>
                                                         <span class="badge bg-primary rounded-pill">{{$image->racy}}</span>
                                                     </li>
                                                 </ul>
+                                            </div>
+                                            <div class="col-12">
+                                                <ul class="list-unstyled">
+                                                    @if ($image->labels)
+                                                        @foreach ($image->labels as $label)
+                                                    <li>{{$label}}</li>
+                                                        @endforeach
+                                                    @endif
+                                              </ul>
                                             </div>
                                         @endforeach
                                     </div>
@@ -94,12 +102,12 @@
             <form  action="{{route('revisor.accept', compact('announcement'))}}" method="POST">
                 @csrf
                     <button class="btn btn-success d-flex" type="submit">Accetta</button>
-            </form>  
+            </form>
             </div>
         </div>
     </div>
     @else
         <h3>Nessun articolo da revisionare</h3>
     @endif
-            
+
 </x-layout>

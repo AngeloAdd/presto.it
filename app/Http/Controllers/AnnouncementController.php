@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
 use App\Jobs\GoogleVisionImage;
+use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\ResizeImage;
 use App\Mail\RevisorApplication;
 use App\Models\Announcement;
@@ -49,20 +50,23 @@ class AnnouncementController extends Controller
                     250,
                     250
                 ));
-                
+
                 $i->file = $newFileName;
                 $i->announcement_id = $announcement->id;
 
                 $i->save();
-                
+
                 dispatch(new GoogleVisionImage(
+                    $i->id
+                ));
+                dispatch(new GoogleVisionLabelImage(
                     $i->id
                 ));
             }
             Storage::deleteDirectory("public/temp/{$uniqueSecret}");
         }
         return redirect()->back()->with('message', "Il tuo annuncio è stato creato con successo.");
-        
+
     }
 
     public function show($id)
@@ -109,7 +113,7 @@ class AnnouncementController extends Controller
         $fileName = $request->id;
 
         session()->push("removedimages.{$uniqueSecret}", $fileName);
-        
+
         Storage::delete($fileName);
 
         return response()->json('ok');
