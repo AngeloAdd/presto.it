@@ -1,23 +1,45 @@
 <x-layout>
+
     <x-slot name="style">
         <style>
+
             .hr-custom {
                 width: 4em;
                 height: 3px;
                 border-radius: 20%;
             }
+
             .input-search-custom {
                 border-bottom-right-radius: 0%;
                 border-top-right-radius: 0%;
 
             }
+
             .btn-search-custom {
                 border-bottom-left-radius: 0%;
                 border-top-left-radius: 0%;
             }
 
+            .card-small-custom{
+                font-size:1em;
+            }
+
+            .border-width-type{
+                border-style: solid;
+                border-width: 1px;
+            }
+
+            .border-color-custom {
+                border-color: rgba(92, 92, 196, 0.2);
+            }
+
+            .font-color-custom {
+                color: rgba(92, 92, 196, 0.5);
+            }
+
         </style>
     </x-slot>
+    
     <div class="container-fluid above-the-fold justify-content-center align-content-center">
         <div class="row mx-auto w-100 h-100 justify-content-center align-content-center">
             <div class="col-12 col-md-8 d-flex justify-content-center">
@@ -45,7 +67,72 @@
          </div>
     </div>
 
-    <div class="d-flex my-5 py-5 px-5 mx-5">    
+    <div class="py-5 px-4 mx-4">
+        <div class="container-fluid justify-content-center align-items-center py-5 my-5">
+            <div class="row justify-content-center align-items-center py-4 border-width-type border-color-custom">
+
+                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 border-start-0 py-3 py-lg-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="ps-3">
+                            <i class="bi bi-vector-pen display-5 display-lg-4 acc-text"></i>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-start flex-column px-4">
+                            <h4 class="fs-4 acc-text">Scrivi un Annuncio</h4>
+                            <p class="m-0 font-color-custom card-small-custom">
+                                Impieghi solo 30 secondi
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 py-3 py-lg-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="ps-3">
+                            <i class="bi bi-chat-left-text display-5 display-lg-4 acc-text"></i>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-start flex-column px-4">
+                            <h4 class="fs-4 acc-text">Trova l'Annuncio</h4>
+                            <p class="m-0 font-color-custom card-small-custom">
+                                Ed entra subito in contatto
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 py-3 py-lg-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="ps-3">
+                            <i class="bi bi-piggy-bank display-5 display-lg-4 acc-text"></i>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-start flex-column px-4">
+                            <h4 class="fs-4 acc-text">Mettiti in gioco</h4>
+                            <p class="m-0 font-color-custom card-small-custom">
+                                Lavora con noi
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 border-end-0 py-3 py-lg-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="ps-3">
+                            <i class="bi bi-file-earmark-text display-5 display-lg-4 acc-text"></i>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-start flex-column px-4">
+                            <h4 class="fs-4 acc-text">Hai qualche dubbio?</h4>
+                            <p class="m-0 font-color-custom card-small-custom">
+                                Cerca nelle FAQ la risposta
+                            </p>
+                        </div>
+                    </div>
+                </div>      
+
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="d-flex my-5 py-5 px-5 mx-5 d-none">    
         <div class="col-12 col-md-3 px-3">
             <div class="card text-center acc-text">
                 <div class="card-body">
