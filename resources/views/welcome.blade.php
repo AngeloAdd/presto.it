@@ -36,15 +36,38 @@
             .font-color-custom {
                 color: rgba(92, 92, 196, 0.5);
             }
+            .font-trovaaffare{
+                font-size: 2em;
+            }
+
+            .border-right-custom{
+                border-right: 1px solid rgba(92, 92, 196, 0.2);
+            }
+
+            @media only screen and (max-width:425px)
+            {
+                .font-trovaaffare{
+                font-size: 1.2rem;
+               }
+            }
+
+            @media only screen and (max-width:992px){
+                .border-right-custom{
+                border-right: 0px solid rgba(92, 92, 196, 0.2);
+                border-bottom: 1px solid rgba(92, 92, 196, 0.2);
+            }
+            }
+
+
 
         </style>
     </x-slot>
     
     <div class="container-fluid above-the-fold justify-content-center align-content-center">
         <div class="row mx-auto w-100 h-100 justify-content-center align-content-center">
-            <div class="col-12 col-md-8 d-flex justify-content-center">
-                <h1 class="display-3 title-text text-white">
-                    <span class="d-none d-md-inline">{{__("ui.Benvenuti su")}}</span>
+            <div class="col-12 col-lg-8 d-flex justify-content-center">
+                <h1 class="display-3 title-text presto-text text-center">
+                    <span class="">{{__("ui.Benvenuti su")}}</span>
                     <span class="main-text">Presto</span>.it
                 </h1>
             </div>
@@ -53,7 +76,7 @@
                </div>
             </div>
             <div class="col-12 d-flex justify-content-center mb-3">
-                <h2 class="text-white mt-2 fs-2 fw-normal">{{__("ui.Trova il tuo prossimo affare")}}</h2>
+                <h2 class="text-white mt-2 font-trovaaffare fw-normal text-center">{{__("ui.Trova il tuo prossimo affare")}}</h2>
             </div>
             <div class="col-12 d-flex justify-content-center">
                 <form method="GET" action="{{route('search')}}">
@@ -69,9 +92,9 @@
 
     <div class="py-5 px-4 mx-4">
         <div class="container-fluid justify-content-center align-items-center py-5 my-5">
-            <div class="row justify-content-center align-items-center py-4 border-width-type border-color-custom">
+            <div class="row justify-content-center align-items-center px-5 px-lg-0 py-0 py-lg-4 border-width-type border-color-custom">
 
-                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 border-start-0 py-3 py-lg-2">
+                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border-right-custom py-3 py-lg-2">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="ps-3">
                             <i class="bi bi-vector-pen display-5 display-lg-4 acc-text"></i>
@@ -85,7 +108,7 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 py-3 py-lg-2">
+                <div class="col-lg-3 d-flex justify-content-center align-items-center border-right-custom py-3 py-lg-2">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="ps-3">
                             <i class="bi bi-chat-left-text display-5 display-lg-4 acc-text"></i>
@@ -99,7 +122,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 py-3 py-lg-2">
+                <div class="col-lg-3 d-flex justify-content-center align-items-center border-right-custom py-3 py-lg-2">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="ps-3">
                             <i class="bi bi-piggy-bank display-5 display-lg-4 acc-text"></i>
@@ -113,7 +136,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 d-flex justify-content-center align-items-center border-color-custom border border-1 border-top-0 border-bottom-0 border-end-0 py-3 py-lg-2">
+                <div class="col-lg-3 d-flex justify-content-center align-items-center py-3 py-lg-2">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="ps-3">
                             <i class="bi bi-file-earmark-text display-5 display-lg-4 acc-text"></i>
@@ -130,6 +153,8 @@
             </div>
         </div>
     </div>
+
+    
     
 
     <div class="d-flex my-5 py-5 px-5 mx-5 d-none">    
