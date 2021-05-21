@@ -4,6 +4,7 @@
     --main-color:  #FF006E;
     --sec-color:  #5C5CC4;
     --acc-color:  #3A405A;
+    --white-color: #f8fafc;
 }
 
 body {
@@ -17,12 +18,15 @@ body {
     top: 100%;
 }
 
-h1, h2, h3, .title-text{
+h1, h2, h3,h4,h6,h5, .title-text{
     font-weight: 500;
 }
 
 .main-text {
     color: var(--main-color);
+}
+.presto-text{
+    color: var(--white-color);
 }
 .sec-text {
     color: var(--sec-color);
@@ -33,6 +37,9 @@ h1, h2, h3, .title-text{
 
 .main-bg {
     background-color: var(--main-color);
+}
+.presto-bg {
+    background-color: var(--white-color);
 }
 .sec-bg {
     background-color: var(--sec-color);
@@ -49,6 +56,16 @@ h1, h2, h3, .title-text{
     color:var(--sec-color);
 }
 
+.pallino {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    top: 10px;
+    right: 0px;
+}
+
 .above-the-fold {
     min-height:500px;
     background-image: url("/img/header.jpg");
@@ -62,8 +79,10 @@ h1, h2, h3, .title-text{
     transform: translateY(-10px);
     color: var(--main-color);
 }
+
 .altezza{
-    height: 100vh;
+    height: 120vh;
+    min-height:500px;
 }
 
 .dropzone {
@@ -79,4 +98,43 @@ h1, h2, h3, .title-text{
     vertical-align: middle;
     color: #263238;
     text-align: center !important;
+}
+
+@media only screen and (min-width: 1440px){
+    .altezza {
+        height: 130vh;
+    }
+}
+@media only screen and (min-width: 2560px){
+    .altezza {
+        height: 80vh;
+    }
+    .nav-fs {
+        font-size: 2rem;
+    }
+    .fs-custom-categories{
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .icon-custom:hover {
+        transform: translateY(0px);
+        color: var(--white-color);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .fs-custom-categories{
+        font-size: 0.8em;
+    }
+    .nav-fs {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .nav-fs {
+        font-size: 0.9rem;
+    }
 }
