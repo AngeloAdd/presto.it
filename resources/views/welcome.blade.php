@@ -44,6 +44,36 @@
                 border-right: 1px solid rgba(92, 92, 196, 0.2);
             }
 
+
+            .grid-custom{
+                display:grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+            .grid-element{
+                overflow: hidden;
+            }
+
+            .custom-swag{
+                transition: 500ms ease-out;
+                filter: grayscale(0.4) contrast(120%);
+            }
+
+            .custom-swag:hover{
+                transform: scale(1.3);
+                overflow: hidden;
+                filter: grayscale(0.9) contrast(150%);
+            }
+
+            .annuncio-last{
+                bottom: 0;
+                color: var(--white-color);
+                left: 0;
+                font-size: 1em;
+                z-index:99;
+                font-weight: 900,
+            }
+
             @media only screen and (max-width:425px)
             {
                 .font-trovaaffare{
@@ -90,7 +120,7 @@
          </div>
     </div>
 
-    <div class="py-5 px-4 mx-4">
+    <div class="pt-5 pb-2 px-4 mx-4">
         <div class="container-fluid justify-content-center align-items-center py-5 my-5">
             <div class="row justify-content-center align-items-center px-5 px-lg-0 py-0 py-lg-4 border-width-type border-color-custom">
 
@@ -155,43 +185,29 @@
     </div>
 
     
-    
 
-    <div class="d-flex my-5 py-5 px-5 mx-5 d-none">    
-        <div class="col-12 col-md-3 px-3">
-            <div class="card text-center acc-text">
-                <div class="card-body">
-                    <p>Annunci</p>
-                    <i class="bi bi-megaphone fs-5"></i>
-                </div>
+    <div class="container justify-content-center align-items-center pb-4">
+
+        <div class="grid-custom justify-items-center align-content-center">
+            <div class="grid-element justify-content-center align-content-end m-2 position-relative">
+                <a href="{{route('last.announcement', ['cat'=>$lC[0]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[0]}}</a>
+                <img class="img-fluid custom-swag rounded-3" src="/img/mock/{{$lC[0]}}.jpg" alt="">
             </div>
-        </div>
-        <div class="col-12 col-md-3 px-3">
-            <div class="card border border-1 border-secondary text-center acc-text">
-                <div class="card-body">
-                    <p>Categorie</p>
-                    <i class="bi bi-list-stars fs-5"></i>
-                </div>
+            <div class="grid-element justify-content-center align-content-end m-2 position-relative">
+                <a href="{{route('last.announcement', ['cat'=>$lC[1]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[1]}}</a>
+                <img class="img-fluid custom-swag rounded-3" src="/img/mock/{{$lC[1]}}.jpg" alt="">
             </div>
-        </div>
-        <div class="col-12 col-md-3 px-3">
-            <div class="card text-center acc-text">
-                <div class="card-body">
-                    <p>Utenti</p>
-                    <i class="bi bi-person fs-5"></i>
-                </div>
+            <div class="grid-element justify-content-center align-content-start m-2 position-relative">
+                <a href="{{route('last.announcement', ['cat'=>$lC[2]])}}"  class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[2]}}</a>
+                <img class="img-fluid custom-swag rounded-3" src="/img/mock/{{$lC[2]}}.jpg" alt="">
             </div>
-        </div>
-        <div class="col-12 col-md-3 px-3">
-            <div class="card text-center acc-text">
-                <div class="card-body">
-                    <p>Recensioni</p>
-                    <i class="bi bi-pencil-square fs-5"></i>
-                </div>
+            <div class="grid-element justify-content-center align-content-start m-2 position-relative">
+                <a href="{{route('last.announcement', ['cat'=>$lC[3]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[3]}}</a>
+                <img class="img-fluid custom-swag rounded-3" src="/img/mock/{{$lC[3]}}.jpg" alt="">
             </div>
         </div>
     </div>
-
+        
     <div class="container-fluid px-5 mt-5">
         <div class="row w-100">
             @foreach ($announcements as $announcement)

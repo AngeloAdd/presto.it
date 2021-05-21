@@ -11,7 +11,21 @@ class PublicController extends Controller
     public function indexHome()
     {
         $announcements = Announcement::orderByDesc('created_at')->where('is_accepted', true)->take(6)->get();
-        return view('welcome', compact('announcements'));
+        $lasts = Announcement::orderByDesc('created_at')->where('is_accepted', true)->get();
+        $lCD = [];
+        foreach ($lasts as $a)
+        {
+            $lCD[]= $a->category->name;
+        }
+        $lCC = array_unique($lCD); 
+        $lC = [];
+        foreach($lCC as $l)
+        {
+            $lC[]=$l;
+        }
+
+
+        return view('welcome', compact('announcements', 'lC'));
     }
 
     public function index()
@@ -36,6 +50,12 @@ class PublicController extends Controller
     {
         session()->put('locale', $locale);
         return redirect()->back();
+    }
+
+    public function last($cat){
+        $category = Category::where('name', $cat);
+        $announcement = $category->announcements()->first();
+        return view('showAnnouncement', compact('announcement'));
     }
 }
 
