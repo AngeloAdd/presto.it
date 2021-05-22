@@ -59,4 +59,4 @@ Route::delete('/annuncio/immagine/remove', [AnnouncementController::class, 'remo
 
 Route::get('/annuncio/immagini',[AnnouncementController::class, 'getImage'])->name('get.images');
 
-Route::get('/ultimo/annuncio{cat}', [PublicController::class, 'last'])->name('last.announcement');
+Route::get('/ultimo/annuncio/{cat}', [PublicController::class, 'last'])->name('last.announcement');

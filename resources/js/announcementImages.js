@@ -1,4 +1,3 @@
-const { add } = require("lodash");
 
 $(function() {
 
@@ -55,6 +54,7 @@ $(function() {
                     id: file.serverId,
                     uniqueSecret: uniqueSecret
                 },
+                
                 dataType: 'json'
             });
         });

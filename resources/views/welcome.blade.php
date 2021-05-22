@@ -48,21 +48,31 @@
             .grid-custom{
                 display:grid;
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(2, 1fr);
             }
+            .subgrid{
+                display:grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 60% 40%;
+            }
+            .subgrid-2{
+                display:grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 45% 55%;
+            }
+
             .grid-element{
                 overflow: hidden;
             }
 
             .custom-swag{
                 transition: 500ms ease-out;
-                filter: grayscale(0.4) contrast(120%);
+                filter: grayscale(0.8) contrast(150%);
             }
 
             .custom-swag:hover{
                 transform: scale(1.3);
                 overflow: hidden;
-                filter: grayscale(0.9) contrast(150%);
+                filter: grayscale(0.4) contrast(120%);
             }
 
             .annuncio-last{
@@ -120,7 +130,7 @@
          </div>
     </div>
 
-    <div class="pt-5 pb-2 px-4 mx-4">
+    <div class="pt-4 pb-2 px-4 mx-4">
         <div class="container-fluid justify-content-center align-items-center py-5 my-5">
             <div class="row justify-content-center align-items-center px-5 px-lg-0 py-0 py-lg-4 border-width-type border-color-custom">
 
@@ -185,35 +195,67 @@
     </div>
 
     
-
+@if(isset($lC[0]) || isset($lC[1]) || isset($lC[2]) || isset($lC[3]))
     <div class="container justify-content-center align-items-center pb-4">
 
         <div class="grid-custom justify-items-center align-content-center">
-            <div class="grid-element justify-content-center align-content-end m-2 position-relative">
-                <a href="{{route('last.announcement', ['cat'=>$lC[0]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[0]}}</a>
-                <img class="img-fluid custom-swag rounded-3" src="/img/mock/{{$lC[0]}}.jpg" alt="">
+            <div class="subgrid">
+                @if(!isset($lC[0]))
+                @else
+                    <div class="grid-element justify-content-center align-content-end m-2 position-relative grid-1">
+                    <a href="{{route('last.announcement', ['cat'=>$lC[0]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[0]}}</a>
+                    <img class="img-fluid w-100 h-100 custom-swag rounded-3" src="/img/mock/{{$lC[0]}}.jpg" alt="">
+                    </div>
+                @endif
+                @if(!isset($lC[1]))
+                @else
+                    <div class="grid-element justify-content-center align-content-end m-2 position-relative">
+                    <a href="{{route('last.announcement', ['cat'=>$lC[1]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[1]}}</a>
+                    <img class="img-fluid w-100 h-100 custom-swag rounded-3" src="/img/mock/{{$lC[1]}}.jpg" alt="">
+                    </div>
+                @endif
             </div>
-            <div class="grid-element justify-content-center align-content-end m-2 position-relative">
-                <a href="{{route('last.announcement', ['cat'=>$lC[1]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[1]}}</a>
-                <img class="img-fluid custom-swag rounded-3" src="/img/mock/{{$lC[1]}}.jpg" alt="">
-            </div>
-            <div class="grid-element justify-content-center align-content-start m-2 position-relative">
-                <a href="{{route('last.announcement', ['cat'=>$lC[2]])}}"  class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[2]}}</a>
-                <img class="img-fluid custom-swag rounded-3" src="/img/mock/{{$lC[2]}}.jpg" alt="">
-            </div>
-            <div class="grid-element justify-content-center align-content-start m-2 position-relative">
-                <a href="{{route('last.announcement', ['cat'=>$lC[3]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[3]}}</a>
-                <img class="img-fluid custom-swag rounded-3" src="/img/mock/{{$lC[3]}}.jpg" alt="">
+            <div class="subgrid-2">
+                @if(!isset($lC[2]))
+                @else
+                    <div class="grid-element justify-content-center align-content-start m-2 position-relative grid-2">
+                    <a href="{{route('last.announcement', ['cat'=>$lC[2]])}}"  class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[2]}}</a>
+                    <img class="img-fluid w-100 h-100 custom-swag rounded-3" src="/img/mock/{{$lC[2]}}.jpg" alt="">
+                    </div>
+                @endif
+                @if(!isset($lC[3]))
+                @else
+                    <div class="grid-element justify-content-center align-content-start m-2 position-relative">
+                    <a href="{{route('last.announcement', ['cat'=>$lC[3]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[3]}}</a>
+                    <img class="img-fluid w-100 h-100 custom-swag rounded-3" src="/img/mock/{{$lC[3]}}.jpg" alt="">
+                    </div>
+                @endif
             </div>
         </div>
     </div>
-        
-    <div class="container-fluid px-5 mt-5">
-        <div class="row w-100">
+@endif
+    <div class="container-fluid px-5 mt-5 justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center">
+        <div class="col-12 d-flex justify-content-center align-items-center mb-5">
+            <h2>Ultimi Annunci Pubblicati</h2>
+        </div>
+        </div>
+        <div class="row w-100 justify-content-center align-items-center mx-0">
             @foreach ($announcements as $announcement)
                 @include('components._card')
             @endforeach
         </div>
     </div>
     
+    <div class="container justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <h4>{{__('Continua a cercare tra gli annunci.')}}</h4>
+            </div>
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <a href="{{route('announcements.index')}}" class="btn main-bg presto-text">Chi Cerca Trova</a>
+            </div>
+        </div>
+    </div>
+
 </x-layout>

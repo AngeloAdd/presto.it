@@ -1,4 +1,7 @@
 <x-layout>
+<h1>
+<!-- {{$uniqueSecret}} -->
+</h1>
     <div class="altezza w-100 d-flex justify-content-center align-items-center my-xxl-5 pb-xxl-5">
         <div class="container justify-content-center align-items-center">
             <div class="row justify-content-center align-items-center">

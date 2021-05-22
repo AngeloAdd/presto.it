@@ -35,7 +35,9 @@ class AnnouncementController extends Controller
         $announcement = Auth::user()->announcements()->create($request->validated());
 
         $uniqueSecret = $request->uniqueSecret;
-        $images = session()->get("images.{$uniqueSecret}");
+        $images = session()->get("images.{$uniqueSecret}",[]);
+        $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+        $images = array_diff($images, $removedImages);
         if($images){
 
             $id = $announcement->id;
@@ -45,9 +47,6 @@ class AnnouncementController extends Controller
                 $fileName = basename($image);
                 $newFileName =  "public/announcements/{$id}/{$fileName}";
                 $file = Storage::move($image, $newFileName);
-
-
-               
 
                 $i->file = $newFileName;
                 $i->announcement_id = $announcement->id;
@@ -90,7 +89,7 @@ class AnnouncementController extends Controller
         $uniqueSecret = $request->uniqueSecret;
 
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
-
+        
         dispatch(new ResizeImage(
             $fileName,
             120,
@@ -114,21 +113,22 @@ class AnnouncementController extends Controller
         $fileName = $request->id;
 
         session()->push("removedimages.{$uniqueSecret}", $fileName);
-
+        
         Storage::delete($fileName);
-
+        
         return response()->json('ok');
     }
 
     public function getImage(Request $request) {
+
         $uniqueSecret = $request->uniqueSecret;
 
         $images = session()->get("images.{$uniqueSecret}",[]);
 
         $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
-
         $images = array_diff($images, $removedImages);
 
+        
         $data = [];
 
         foreach ($images as $image) {
@@ -137,7 +137,7 @@ class AnnouncementController extends Controller
                 'src'=>AnnouncementImage::getUrlByFilePath($image, 120, 120)
             ];
         }
-
+        
         return response()->json($data);
     }
 }
