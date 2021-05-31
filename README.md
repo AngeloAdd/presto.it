@@ -16,4 +16,7 @@ The project was built by me and other 4 people in two weeks. The main features a
 * Vlad Chirila
 * Guglielmo Gregoris
 * Angelo Adduci
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8c5eb9943f88be3139f45f4f460238b56b573d9
