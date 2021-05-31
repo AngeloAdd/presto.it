@@ -30,7 +30,7 @@ class PublicController extends Controller
 
     public function index()
     {
-        $announcements = Announcement::orderByDesc('created_at')->where('is_accepted', true)->paginate(18);
+        $announcements = Announcement::where('is_accepted', true)->orderByDesc('created_at')->paginate(6);
         return view('announcements', compact('announcements'));
     }
     public function show (Category $category) {
@@ -39,7 +39,7 @@ class PublicController extends Controller
     }
     public function search(Request $request) {
         $q = $request->q;
-        $announcements = Announcement::search('%'.$q.'%')->where('is_accepted', true)->paginate(6);
+        $announcements = Announcement::search('%'.$q.'%')->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         
         return view('search.search_results', compact('q', 'announcements'));
     }

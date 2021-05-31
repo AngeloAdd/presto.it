@@ -4,8 +4,8 @@
             @foreach ($announcements as $announcement)
             @include('components._card')
             @endforeach
-        {{ $announcements->links() }}
         </div>
     </div>
+    {{ $announcements->links() }}
 </x-layout>
  

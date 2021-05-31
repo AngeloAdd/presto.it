@@ -84,6 +84,9 @@
                 font-weight: 900,
             }
 
+
+
+
             @media only screen and (max-width:425px)
             {
                 .font-trovaaffare{
@@ -202,14 +205,14 @@
             <div class="subgrid">
                 @if(!isset($lC[0]))
                 @else
-                    <div class="grid-element justify-content-center align-content-end m-2 position-relative grid-1">
+                    <div class="$lC[0] grid-element justify-content-center align-content-end m-2 position-relative grid-1 rounded-3">
                     <a href="{{route('last.announcement', ['cat'=>$lC[0]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[0]}}</a>
                     <img class="img-fluid w-100 h-100 custom-swag rounded-3" src="/img/mock/{{$lC[0]}}.jpg" alt="">
                     </div>
                 @endif
                 @if(!isset($lC[1]))
                 @else
-                    <div class="grid-element justify-content-center align-content-end m-2 position-relative">
+                    <div class="grid-element justify-content-center align-content-end m-2 position-relative rounded-3">
                     <a href="{{route('last.announcement', ['cat'=>$lC[1]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[1]}}</a>
                     <img class="img-fluid w-100 h-100 custom-swag rounded-3" src="/img/mock/{{$lC[1]}}.jpg" alt="">
                     </div>
@@ -218,14 +221,14 @@
             <div class="subgrid-2">
                 @if(!isset($lC[2]))
                 @else
-                    <div class="grid-element justify-content-center align-content-start m-2 position-relative grid-2">
+                    <div class="grid-element justify-content-center align-content-start m-2 position-relative grid-2 rounded-3">
                     <a href="{{route('last.announcement', ['cat'=>$lC[2]])}}"  class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[2]}}</a>
                     <img class="img-fluid w-100 h-100 custom-swag rounded-3" src="/img/mock/{{$lC[2]}}.jpg" alt="">
                     </div>
                 @endif
                 @if(!isset($lC[3]))
                 @else
-                    <div class="grid-element justify-content-center align-content-start m-2 position-relative">
+                    <div class="grid-element justify-content-center align-content-start m-2 position-relative rounded-3">
                     <a href="{{route('last.announcement', ['cat'=>$lC[3]])}}" class=" btn main-bg position-absolute annuncio-last">L'ultimo annuncio in {{$lC[3]}}</a>
                     <img class="img-fluid w-100 h-100 custom-swag rounded-3" src="/img/mock/{{$lC[3]}}.jpg" alt="">
                     </div>
